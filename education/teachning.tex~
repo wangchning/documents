@@ -1,0 +1,20 @@
+\usepackage{amsmath,amssymb,xfrac,txfonts,tikz}
+\usetikzlibrary{calc,intersections,through,backgrounds,angles,shapes}
+\usepackage[UTF8]{ctex}
+%\usepackage[paperheight=6in,paperwidth=4.5in,margin=1cm]{geometry}%kindel专用
+%\usepackage[a4paper,margin=2cm]{geometry}%普通
+%\usepackage[includemp=true,marginparsep=.5cm,marginparwidth=3cm,left=2.5cm,right=2cm]{geometry}%带有旁注
+\setlength\mathsurround{0.5ex}
+\linespread{1.75}%调整行距
+\newcommand\lines[1][1.2]{\,\underline{\mbox{\hspace{#1cm}}}\,}% 填空题的横线
+\newcommand\brackets[1][2]{\nolinebreak\hfill\mbox{~(\hspace{#1em})}\\}% 选择题的括号
+\newcommand{\question}[1][]{\par\vspace{1ex}\noindent\refstepcounter{numberi}\textbf{\thenumberi.}\ensuremath{#1}}\newcounter{numberi}[subsection]% 每道小题自动编号
+\newcommand\quson{\\ \hspace*{1em}\refstepcounter{numberii}\thenumberii)~}\newcounter{numberii}[numberi]% 每道小题自动编号
+\newcommand\choice[5][4]{\vspace*{-1em}\begin{tasks}(#1)\task$#2$\task$#3$\task$#4$\task$#5$\end{tasks}\vspace*{-1.2em}}%选择题排版之数学模式
+\newcommand\choicetext[5][4]{\vspace*{-1em}\begin{tasks}(#1)\task#2\task#3\task#4\task#5\end{tasks}\vspace*{-1.2em}}%选择题排版之数学模式
+\newcommand\set[1]{\lbrace\ensuremath{#1}\rbrace}
+\newcommand\Rbf{\ensuremath{\mathbf{R}}}
+\newcommand\Nbf{\ensuremath{\mathbf{N}}}
+\newcommand\Zbf{\ensuremath{\mathbf{Z}}}
+\newcommand\Qbf{\ensuremath{\mathbf{Q}}}
+\newcommand\Cbf{\ensuremath{\mathbf{C}}}

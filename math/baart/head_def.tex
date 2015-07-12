@@ -1,0 +1,147 @@
+%========宏包加载
+\usepackage[a4paper,margin=2.5cm]{geometry}%设置页面格式，上下左右各留2.5cm
+\usepackage[fancyhdr]{ctexcap} %中文
+%\hypersetup{colorlinks=false}
+\usepackage{amsmath,amssymb,amsthm} %公式
+\usepackage{booktabs,longtable} %表
+\usepackage{graphicx,float} %图
+\usepackage{tikz}%绘图宏包
+\usepackage{cite}%参考文献
+\usepackage{setspace}%设定行距
+\usepackage{lastpage} %记录最后一页的页码
+\usepackage{wrapfig} %图文混排
+\usepackage{titletoc} %
+\usepackage{ccaption} %支持图表中英双标题
+\usetikzlibrary{calc,intersections,through,backgrounds}%调用Tikz的libray
+
+%========字体
+\setCJKfamilyfont{huawen}{STXihei}
+\setCJKfamilyfont{hwzhs}{STZhongsong}
+\newcommand\xihei{\CJKfamily{huawen}}%华文细黑
+\newcommand\zhongsong{\CJKfamily{hwzhs}}%华文中宋
+
+%========标题格式
+\CTEXsetup[format={\zihao{-4}\heiti\bf}]{section}%章节标题居左，四号，黑体
+\CTEXsetup[format={\zihao{-4}\heiti\bf}]{subsection}%章节次标题居左，小四号，黑体
+\CTEXsetup[format={\zihao{-4}\heiti\bf}]{subsubsection}
+\newcommand\msection[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
+%========页面格式
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\rhead{}\lhead{}
+\fancyfoot[C]{\kaishu\small 第\thepage 页\quad 共~\pageref{LastPage} 页}
+
+
+\linespread{1.5}%1.5倍行距
+\setlength\lineskiplimit{0pt}\setlength\lineskip{1ex}%当间距太小时，跳一个ex
+
+%========目录
+\setcounter{tocdepth}{3}%目录深度设为3级
+\newcommand\mycontents{\pagestyle{plain}\pagenumbering{Roman}\tableofcontents\newpage}
+\renewcommand\contentsname{\centerline{\zihao{3} 目录}}
+
+\makeatletter
+\def\fnum@table#1{\tablename\nobreakspace\thetable\hspace{1em}}%去除表标题中的':'
+\def\fnum@figure#1{\figurename\nobreakspace\thefigure\hspace{1em}}%去除图标题中的':'
+\renewcommand*\l@section{\@dottedtocline{1}{0em}{1.0em}}
+\makeatother
+%========重定义命令
+\def\emph#1{{\heiti #1}}
+
+%========数学公式
+\setlength\mathsurround{0.5ex}%文本公式前后留下空白
+\makeatletter
+\renewcommand\normalsize{\@setfontsize\normalsize\@xpt\@xiipt\abovedisplayskip8\p@\@plus3\p@\@minus5\p@\abovedisplayshortskip\z@\@plus3\p@\belowdisplayshortskip5\p@\@plus3\p@\@minus7\p@\belowdisplayskip\abovedisplayskip\let\@listi\@listI}%行间公式上下
+\@addtoreset{equation}{section}
+\renewcommand\theequation{\oldstylenums{\thesection}.\oldstylenums{\arabic{equation}}}%公式按章节编号
+\makeatother
+
+\allowdisplaybreaks %允许公式跨页
+
+%========定理环境
+\newtheoremstyle{mystyle}{5pt}{5pt}{\songti}{2em}{\heiti\bf}{}{1em}{}
+%style名称 %环境前空白 %环境后空白 %主字体 %theorem名前的缩进 %theorem字体 % %theorem后缩进
+\theoremstyle{mystyle}
+\newtheorem{definition}{定义}[section]
+\newtheorem{theorem}{定理}[section]
+\newtheorem{corollary}{推论}[section]
+\newtheorem{property}{问题}[section]
+\newtheorem{proposition}{猜测}[section]
+\newtheorem{lemma}{引理}[section]
+\newtheorem{example}{例}[section]
+\newenvironment{key}{\par\indent{\heiti 解~~}}{\hspace*{\fill} $\Box$\par}
+\renewenvironment{proof}{\par\indent{\heiti 证明~~}}{\hspace*{\fill}$\Box$\par}
+
+%========常用命令
+\newcommand*\circled[1]{%
+\hspace{1pt}
+\tikz[baseline=(char.base)]
+\node[very thin,shape=circle,draw,inner sep=.5pt,minimum size=2pt](char){#1};
+\hspace{1pt}}
+\renewcommand\mod[1]{\ (\text{mod}\;#1)}
+\newcommand{\upcite}[1]{$\!\!\!^{\mbox{\scriptsize\cite{#1}}}$}
+
+%========论文封面
+\def\maketitle{%
+\begin{titlepage}\ttfamily
+\begin{center}
+\includegraphics[width=2in]{swu.jpg}
+\par\vspace{3em}
+\zihao{1} {\heiti 本科毕业论文（设计）}
+\vfil
+\zhongsong\zihao{2} 题~~~~目\ \underline{\mbox{\title}}
+\vfil
+\begin{spacing}{2.0}%二倍行距
+\zihao{-2}\ziju{.2}
+\par\makebox[1.1in][s]{学院}~~\underline{\makebox[2.4in][c]{\college}}
+\par\makebox[1.1in][s]{专业}~~\underline{\makebox[2.4in][c]{\major}}
+\par\makebox[1.1in][s]{年级}~~\underline{\makebox[2.4in][c]{\grade}}
+\par\makebox[1.1in][s]{学号}~~\underline{\makebox[2.4in][c]{\studentID}}
+\par\makebox[1.1in][s]{姓名}~~\underline{\makebox[2.4in][c]{\author}}
+\par\makebox[1.1in][s]{指导老师}~~\underline{\makebox[2.4in][c]{\don}}
+\par\makebox[1.1in][s]{成绩}~~\underline{\makebox[2.4in][c]{}}
+\end{spacing}
+\vfil\zihao{3}\date\par\vspace{-4em}
+\end{center}\end{titlepage}\newpage}
+
+%========中文标题
+\def\makezhtitle{%
+\pagestyle{fancy}\setcounter{page}{1}\pagenumbering{arabic}
+\begin{center}
+    \heiti\zihao{3}\title\ 
+    \par\hfill\par
+    \zihao{-4}\songti \author\ 
+    \par\zihao{5} 西南大学，重庆 400715
+\end{center}
+\par\hfill\par
+}
+
+%========英文标题
+\def\makeentitle{%
+\par\hfill\par
+\begin{center}
+    \zihao{4}\textbf{\entitle}
+    \par\vspace*{1.7em}
+    \zihao{5} \enauthor\ 
+    \par\zihao{-5} School of Mathematics and Statistics, Southwest University, Chongqing  400715, China
+\end{center}}
+
+%========中文摘要
+\newenvironment{abstrace}
+{\maketitle\mycontents\makezhtitle\zhongsong\zihao{5} 摘要：\fangsong}
+{\addcontentsline{toc}{section}{摘要}}
+\def\keywords{\par\zhongsong 关键词：\songti}
+
+%========英文摘要
+\newenvironment{enabstrace}
+{\addcontentsline{toc}{section}{Abstract}\makeentitle
+\def\keywords{\par\noindent\textbf{Key words: }}
+\par\vspace*{1.5em}\noindent\zihao{5}\textbf{Abstract:}}
+{\par\pagebreak[4]\hspace{1em}}
+
+\newenvironment{mybib}
+{\begin{thebibliography}{99}
+\setlength\itemsep{-2mm}\zihao{5}
+\addcontentsline{toc}{section}{参考文献}}
+{\end{thebibliography}}
+

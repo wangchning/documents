@@ -1,0 +1,221 @@
+========基本知识=================================================
+--------数学模式-------------------------------------------------
+数学命令必须在数学模式中才能使用。数学模式有正文公式$(a+b)^2=a^2+2ab+b^2$，和行间公式
+    \[\sum_{k=1}^nk=\frac{n(n+1)}{2}\]
+
+行间公式	$...$	\(...\)	\begin{math}...\end{math}
+行间公式	$$...$$	\[...\]	\begin{displaymath}...\end{dispalymath}
+				\begin{equation*}...\end{equation*}
+编号行间公式			\begin{equation}...\end{equation}
+
+注: $及$$符是TeX中数学公式的分隔符, 当然在LaTeX一样使用. 但是LaTeX中的\(...\)及\[...\]对此作了更多的调整, 一般推荐使用$...$加\[...\]完成正文公式和不带编号的行间公式.
+
+有时希望在正文中实现行间公式的效果，可用 \displaystyle 实现。另有同类命令 \textstyle\scriptstyle\scriptscriptstyle 分别实现文中、下标、下下标的效果。
+  
+--------上下标-------------------------------------------------------
+下标用 _ ，如$a_1$，当下标多于一个字符时用大括号，如$\a_{ij}$. 上标用 ^，可与下标一起使用，如$\a_1^2$或$a^2_1$.
+
+在行间公式中上下标遇到 \sum 之类的命令 \sum_{k=1}^n 会把 k=1 n 分居中 simaga 的上下。类似的命令还有 \prod 等。
+
+-------- 根号------------------------------------------------------------
+\sqrt2		\sqrt{pi} 	\sqrt[3]{a+b}
+
+
+-------- 分数------------------------------------------------------------
+\frac12		\frac{a}{b+c}
+
+\dfrac ab  可以在文中公式中显示行间公式的效果
+
+分数无非就是上面一个下面一个，中间加一条线，其实还有其他类似和东西
+\binom{m}{k}
+
+
+--------求和等------------------------------------------------------------
+\sum_{k=1}^n k		\sum\limits_{k=1}^n k
+\sum_{k=1}^n k		\sum\limits_{k=1}^n k
+\sum_{k=1}^n k 		\sum\nolimits_{k=1}^n k
+\sum_{k=1}^n k		\sum\nolimits_{k=1}^n k
+
+    类似的还有 \prod \lim
+
+--------向量-------------------------------------------------------------
+\vec{a}		\overrightarrow{AB}
+
+--------希腊字母--------------------------------------------------------
+\alpha	\beta	\gamma	\delta		\epsilon	\varepsilon
+\zeta	\eta	\theta	\vartheta	\iota\kappa	\lambda
+\mu	\nu	\xi  	 o		\pi		\varpi
+\rho	\varrho	\sigma	\varsigma	\tau		\upsilon
+\phi	\varphi	\chi	\psi		\omega
+\Gamma	\Delta	\Thet	\Lambda		\Xi		\Pi
+\Sigma	\Upsilon\Phi	\Psi		\Omega		 $ 
+
+--------常用符号-------------------------------------------------------
+\pm	\mp	\times	\div
+\ast	\le	\ge	\equiv
+      $\cap$&\tbs{cap}&$\cup$&\tbs{cup}&$\sim$&\tbs{sim}&$\approx$&\tbs{approx}\\
+      $\cong$&\tbs{cong}&$\neq$&\tbs{neq}&$\perp$&\tbs{perp}&$\in$&\tbs{in}\\
+      $\subset$&\tbs{subset}&$\supset$&\tbs{supset}&$\subseteq$&\tbs{subseteq}&$\supseteq$&\tbs{supseteq}\\
+      $\angle$&\tbs{angle}&$\infty$&\tbs{infty}&$\partial$&\tbs{partial}&$\triangle$&\tbs{triangle}\\
+      $\prime$&\tbs{prime}&$\forall$&\tbs{forall}&$\exists$&\tbs{exists}&$\neg$&\tbs{neg}\\
+      $\surd$&\tbs{surd}&$\checkmark$&\tbs{checkmark}&$\cdot$&\tbs{cdot}&$\cdots$&\tbs{cdots}\\
+      $\ldots$&\tbs{ldots}&$\vdots$&\tbs{vdots}&$\ddots$&\tbs{ddots}&$\leftarrow$&\tbs{leftarrow}\\
+      $\Rightarrow$&\tbs{Rightarrow}&$\Longleftarrow$&\tbs{Longleftarrow}&$\iff$&\tbs{iff}&$\to$&\tbs{to}\\
+      $\square$&\tbs{square}&$\therefore$&\tbs{therefore}&$\because$&\tbs{because}&$\leqslant$&\tbs{leqslant}\\
+      $\geqslant$&\tbs{geqslant}&$\varnothing$&\tbs{varnothing}&$\circ$&\tbs{circ}\\
+      \hline
+    \end{tabular}
+
+    在符号命令前加一个 \verb+\not+ 会画一个斜线在上面，如\verb|\not\in \not\equiv| $\not\in\quad\not\equiv$,
+  \subsection{函数}
+    数学模式中字母是斜体，而函数名应该用正体，为此 \TeX 定义了一些函数名。如 \tbs{sin x} 输出 $\sin x$.
+    \begin{verbatim}
+\sin  \cos  \tan  \cot  \sec  \csc  \arcsin  \arccos  \arctan  \sinh  \cosh
+\exp  \lg   \ln   \log  \lim  \inf  \liminf  \sup     \limsup  \Pr    \tanh
+\mod  \gcd  \min  \max  \arg  \dim  \det     \deg     \ker     \hom
+    \end{verbatim}
+    这些函数命令可以把下标转化为下限： \\
+    \verb|\det  \gcd  \inf  \sup  \lim  \liminf  \limsup  \max  \min|
+
+    $10\equiv1\mod3$   \quad  $a\bmod b$ \quad $y\pmod{a+b}$\\
+    \verb|$10\equiv1\mod3$|  \quad \verb|$a\bmod b$| \quad \verb|$y\pmod{a+b}$|
+
+
+  \subsection{分隔符}
+    我们可以在上述分隔符前面加 \verb|\big \Big \bigg \Bigg| 等命令来调整其大小。也可以在分隔符前面加 \verb|\left \right| 来自动调整大小，但效果欠佳。
+      \[ \Bigg(\bigg(\Big(\big((x)\big)\Big)\bigg)\Bigg)\quad
+         \Bigg[\bigg[\Big[\big[[x]\big]\Big]\bigg]\Bigg]\quad
+         \Bigg\{\bigg\{\Big\{\big\{\{x\}\big\}\Big\}\bigg\}\Bigg\}\]
+      \[ \Bigg\langle\bigg\langle\Big\langle\big\langle\langle x
+         \rangle\big\rangle\Big\rangle\bigg\rangle\Bigg\rangle\quad
+         \Bigg\lvert\bigg\lvert\Big\lvert\big\lvert\lvert x
+         \rvert\big\rvert\Big\rvert\bigg\rvert\Bigg\rvert\quad
+         \Bigg\lVert\bigg\lVert\Big\lVert\big\lVert\lVert x
+         \rVert\big\rVert\Big\rVert\bigg\rVert\Bigg\rVert\]
+  \subsection{空白间距}
+    \begin{tabular}{llll}
+      \hline
+      \verb+\,+ & 3mu & \verb+\quad+ & 1em \\
+      \verb+\:+ & 4mu & \verb+\qquad+ & 2em \\
+      \verb+\;+ & 5mu & \verb+\!+ & -3mu \\
+      \hline
+    \end{tabular}
+\section{跨行公式}
+  \subsection{矩阵}
+    \bpics{0.6}\begin{verbatim}
+\[\left(
+  \begin{array}{cccc}
+    a_{11} & a_{12} & \dots & a_{1n}\\
+    a_{21} & a_{22} & \dots & a_{2n}\\
+    \vdots & \vdots & \ddots& \vdots\\
+    a_{n1} & a_{n2} & \dots & a_{nn}\\
+  \end{array}
+\right)\]\end{verbatim}
+    \mpics{0.3}
+      \[\left(
+        \begin{array}{cccc}
+          a_{11} & a_{12} & \dots & a_{1n}\\
+          a_{21} & a_{22} & \dots & a_{2n}\\
+          \vdots & \vdots & \ddots& \vdots\\
+          a_{n1} & a_{n2} & \dots & a_{nn}\\
+        \end{array}
+      \right)\]
+    \epics
+
+   amsmath 的 pmatrix, bmatrix, Bmatrix, vmatrix, Vmatrix 等环境可以在矩阵两边加上各种分隔符，但是它们没有对齐方式参数。smallmatrix 环境可以生成行间矩阵。
+
+   \begin{verbatim}
+     \[ \begin{pmatrix} a&b\\c&d \end{pmatrix} \quad
+      \begin{bmatrix} a&b\\c&d \end{bmatrix} \quad
+      \begin{Bmatrix} a&b\\c&d \end{Bmatrix} \quad
+      \begin{vmatrix} a&b\\c&d \end{vmatrix} \quad
+      \begin{Vmatrix} a&b\\c&d \end{Vmatrix} \]
+   \end{verbatim}
+   \[ \begin{pmatrix} a&b\\c&d \end{pmatrix} \quad
+      \begin{bmatrix} a&b\\c&d \end{bmatrix} \quad
+      \begin{Bmatrix} a&b\\c&d \end{Bmatrix} \quad
+      \begin{vmatrix} a&b\\c&d \end{vmatrix} \quad
+      \begin{Vmatrix} a&b\\c&d \end{Vmatrix} \]
+
+  \subsection{长公式}
+    无须对齐的长公式可以使用 multline 环境。需要对齐的长公式可以使用 split 环境，它本身不能独立使用，必须包含在其它数学环境内，因此也称作次环境。
+
+    \bpics{0.6}\begin{verbatim}
+        \begin{multline}
+          x = a+b+c+{} \\
+              d+e+f+g
+        \end{multline}\end{verbatim}
+    \mpics{0.3}
+        \begin{multline}
+          x = a+b+c+{} \\
+              d+e+f+g
+        \end{multline}
+    \epics
+
+    \bpics{0.6}\begin{verbatim}
+        \[ \begin{split}
+              x ={} &a+b+c+{} \\
+                    &d+e+f+g
+           \end{split}
+        \]\end{verbatim}
+    \mpics{0.3}
+        \[ \begin{split}
+             x ={} &a+b+c+{} \\
+                   &d+e+f+g
+            \end{split}  \]
+    \epics
+
+  \subsection{公式组}
+      不需要对齐的公式组可以使用 gather 环境，需要对齐的公式组用 align 环境。
+
+    \bpics{0.6}\begin{verbatim}
+        \begin{gather}
+            a = b+c+d \\
+            x = y+z
+        \end{gather}\end{verbatim}
+    \mpics{0.3}
+        \begin{gather}
+          a = b+c+d \\
+          x = y+z
+        \end{gather}
+    \epics
+
+    \bpics{0.6}\begin{verbatim}
+        \begin{align}
+        a &= b+c+d \\
+        x &= y+z
+        \end{align}\end{verbatim}
+    \mpics{0.3}
+        \begin{align}
+          a &= b+c+d \\
+          x &= y+z
+        \end{align}
+    \epics
+
+    multline, gather, align 等环境都有带 * 的版本，不生成公式编号。
+  \subsection{分支公式}
+    \bpics{0.6}\begin{verbatim}
+        \[ y=\begin{cases}
+          -x,\quad x\leq 0 \\
+          x,\quad x>0
+        \end{cases} \]\end{verbatim}
+    \mpics{0.3}
+        \[ y=\begin{cases}
+          -x,\quad x\leq 0 \\
+          x,\quad x>0
+        \end{cases} \]
+    \epics
+
+\section{定理和证明}
+  下面的代码定制了四个环境：定义、定理、引理和推论，它们都在一个 section 内统一编号，而引理和推论会延续定理的编号。
+
+    \begin{verbatim}
+    \newtheorem{definition}{定义}[section]
+    \newtheorem{theorem}{定理}[section]
+    \newtheorem{lemma}[theorem]{引理}
+    \newtheorem{corollary}[theorem]{推论}
+    \end{verbatim}
+
+    amsthm 宏包提供的 proof 环境可以用来输入证明，它会在证明结尾加一个 QED 符号。
+
+\section{数学字体}

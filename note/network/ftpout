@@ -1,0 +1,13 @@
+#!/bin/bash
+ftp -n<<EOF
+open 123.57.143.137
+user byu1160570001 142857dnmq
+binary
+hash
+cd /
+lcd /home/bamboo/wangchning
+prompt
+mput *
+close
+bye
+EOF

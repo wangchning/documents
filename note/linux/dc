@@ -1,0 +1,151 @@
+dc 是 Unix 中的计算工具, 它具有选择和循环的功能, 因而具有图灵完备性. 其语言早于 C 语言, 是最早的 Unix 语言, 因其古老, 较贴近于计算机的执行思路, 而疏远于人类, 通常十分难懂. 
+p  输出堆栈首元, 并不修改堆栈
+f  输出整个堆栈, 也不修改堆栈
+n  将堆栈首元弹出, 并显示在屏幕上, 不换行
+k  指定精确到小数点后 x 位, 其中 x 表示堆栈首元, 如果它不是整数, 将报错
+r  交换堆栈前两个元素
+d  复制首元并将其压入堆栈, 如果堆栈中有一个元素 5, 执行 d, 堆栈中就有两个 5
+i  指定输入进制, 方式同k
+o  指定输出进制
+s  寄存器储存, 比如 sc 把堆栈首元弹出, 存到 c 这个寄存器中
+l  寄存器提取, 比如 lc 把 c 寄存器的内容复制到堆栈中  
+S  把寄存器当作一个堆栈使用
+L  
+x  计算堆栈中的宏
++  
+-  
+*  
+/  
+%  
+|  三目运算
+v  单目运算, 开方
+
+
+3k1 2-3+4*5/p			(1-2+3)*4/5=1.600
+10k12_3 4^+11/v22-p		sqrt((12+(-3)^4)/11)-22=-19.0923298925
+
+1 2 3 4 5++++			1+2+3+4+5
+2d*d*d*p			((2*2)^2)^2
+[1+2*]psm3lmxp			3 1+2*
+[[Ok]p]sm10 5sn3ln*>m
+5[d1-d1<F*]dsFxp		5!
+100[d1-d1<F+]dsFxp		1+2+...+100
+10[dd*pr1-d1<f]dsFxp		输出100,81,64,49,36,25,16,9,4,1
+[[equal]p] sm 5 =m
+
+----------------------------------------------------
+[Hello,world!]p			输出 "Hello,world!"
+[[Hello,world!]plax]salax	不断地输出"Hello,world!"
+[[Hello,world!]pclxx]sxlxx	不断地输出"Hello,world!"
+
+
+-----------------------------------------------------------
+16i[q]sa[ln0=aln100%Pln100/snlbx]sbA0D68736142snlbxq
+Bash
+
+3808936911278909389359514998203616329962227439192148[d256%P256/d0<.]ds.x
+THOSE ARE UNDER 99...
+
+970313512859254401102697436301630872058487784302540104[d256%P256/d0<.]ds.x
+Hum...  Seems to work!
+
+2p3p[dl!d2+s!%0=@l!l^!<#]s#[s/0ds^]s@[p]s&[ddvs^3s!l#x0<&2+l.x]ds.x
+2
+3
+5
+7
+11
+...
+
+--------------------------------------------------
+dc <<< '2k5 4/p' # prints 1.25
+dc <<< '4k5 4/p' # prints 1.2500
+dc <<< '100k 2vp' 
+1.4142135623730950488016887242096980785696718753769480731766797379907\
+324784621070388503875343276415727
+
+
+
+dc << EOF
+20 p# prints 20 output is in base 10
+16o # the output is now done in bas2 16
+20p # prints 14,  in hex
+16i # the output is now done in hex
+p   # prints 14 this doesn't modify the number present in the stack
+10p # prints 10 the output is done in base 16
+EOF
+
+
+
+dc << EOF
+[[Hello World]p] sR  # store in 'R' a macro that prints Hello World
+2 1 >R   	     # do nothing 1 is at the top 2 is the second element
+1 2 >R    	     # prints Hello World
+EOF
+
+
+
+dc << EOF
+[ [Hello World] p   # our macro starts by printing Hello World
+  lRx            ]  # and then executes the macro in R
+sR 		    # we store it in the register R
+lRx                 # and finally executes it.
+EOF
+
+
+
+dc << EOF
+[ li       # put our index i on the stack 
+  p 	   # print it, to see what's going on
+  1 -      # we decrement the index by one
+  si 	   # store decremented index (i=i-1)
+ 0 li >L   # if i > 0 the execute L
+] sL       # store our macro with the name L
+ 
+10 si      # let's give to our index the value 10
+lLx        # and start our loop
+EOF
+
+
+
+dc <<< '[lip1-si0li>L]sL10silLx' 
+dc <<< '[p1-d0<L]sL10lLx' # use the stack instead of a register
+
+
+
+
+
+dc -e '[[Enter a number (metres), or 0 to exit]psj]sh[q]sz[lhx?d0=z10k39.370079*.5+0k12~1/rn[ feet ]Pn[ inches]P10Pdx]dx'
+
+
+
+
+ dc -e '??[dSarLa%d0<a]dsax+p'                   # shortest
+ dc -e '[a=]P?[b=]P?[dSarLa%d0<a]dsax+[GCD:]Pp'  # easier-to-read version
+
+
+
+dc -e '?[q]sQ[d1=Qd1-lFx*]dsFxp'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+    import numpy as np
+  
+    np.arange(<初始值>,<终值>,<步长>)#不含终值
+    np.linspace(<初始值>,<终值>,<元素个数>,endpoint=True)
+    np.logspace(<初始值>,<终值>,<元素个数>,base=2,endpoint=True)
+    np.empty((2,3),np.int)#只分配内存
+    np.zeros(4,np.float)
+    np.ones()
+    np.zeros_like(a) 等效于 np.zeros(a.shape,a.dtype)
+    np.ones_like()    np.empty_like()
+    
+    list=np.array([1,2,3,4])
+    list.shape=2,-1  #修改轴属性，不改变储存
+    d=list.reshape(2,2)  #共享内存
+    
+    通过切片获取的新数组是原数组的一个视图，共享储存空间
+
+    np.pi  np.e  

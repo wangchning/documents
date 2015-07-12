@@ -1,0 +1,93 @@
+\documentclass[a4paper,twocolumn]{article}%landscape,twocolumn,
+\usepackage{ctex}
+\usepackage[margin=1.5cm]{geometry}%设置页边距,上下左右相同
+\usepackage{ifthen,graphicx,picinpar,amsmath}
+\columnsep=15pt\columnseprule=0pt% 设置栏间距和分隔线的宽度
+\pagestyle{empty}%设置页面为无页码格式
+\linespread{1.245} \parskip=.5ex plus 1pt \lineskiplimit=1pt \lineskip=.5ex plus .2ex minus .4ex
+\setlength\mathsurround{0.5ex}%数学模式与文本模式混排时留出的间距
+\newcommand\lines[1][1.2]{\,\underline{\mbox{\hspace{#1cm}}}\,}% 填空题的横线
+\newcommand\brackets[1][2]{\nolinebreak\hfill\mbox{~\small(\hspace{#1em})}\\}% 选择题的括号
+%%选择题的选项
+\newlength\laa\newlength\lbb\newlength\lcc\newlength\ldd
+\newlength\lhalf\newlength\lquarter\newlength\lmax
+\newcommand\xx[4]{\vadjust{\vspace{-3ex plus 1ex minus 1ex}}\\[.5pt]%
+  \settowidth\laa{A.~$#1$~~}\settowidth\lbb{B.~$#2$~~}\settowidth\lcc{C.~$#3$~~}\settowidth\ldd{D.~$#4$~~}
+  \ifthenelse{\laa>\lbb}{\lmax\laa}{\lmax\lbb}\ifthenelse{\lmax<\lcc}{\lmax\lcc}{}\ifthenelse{\lmax<\ldd}{\lmax\ldd}{}
+  \ifthenelse{\boolean{@twocolumn}}{\lhalf0.5\columnwidth\lquarter0.5\lhalf}{\lhalf0.5\textwidth\lquarter0.5\lhalf}
+  \ifthenelse{\lmax>\lhalf}{\noindent{}A.~$#1$ \\ B.~$#2$ \\ C.~$#3$ \\ D.~$#4$ }{%
+  \ifthenelse{\lmax>\lquarter}{\noindent\makebox[\lhalf][l]{A.~$#1$}%
+    \makebox[\lhalf][l]{B.~$#2$}\\\makebox[\lhalf][l]{C.~$#3$}\makebox[\lhalf][l]{D.~$#4$}}%
+    {\noindent\makebox[\lquarter][l]{A.~$#1$}\makebox[\lquarter][l]{B.~$#2$}\makebox[\lquarter][l]{C.~$#3$}\makebox[\lquarter][l]{D.~$#4$}}}}%% 选择题排版
+\newcommand{\quson}[1][]{\noindent\refstepcounter{numbera}\thenumbera.\ensuremath{#1}}\newcounter{numbera}[subsection]% 每道小题自动编号
+\newcommand\subquson{\refstepcounter{numberaa}(\roman{numberaa})~}\newcounter{numberaa}[numbera]% 每道小题自动编号
+\newcommand\an[1][a]{\ensuremath{\{#1_n\}}}%sequence数列{an}
+\newcommand\triabc{\ensuremath{\triangle ABC}}%三角形ABC
+\newcommand\cnm[2][n]{\ensuremath{\textrm{C}^{#2}_{#1}}}%组合数
+\newcommand\qqaud{\hspace*{2em}}
+\begin{document}
+%\begin{center}
+%\textbf{2014年附中数学实习组测试卷\quad2014-04-15}\\
+%总分:150分\quad 时间120分钟\quad 命题人: 王崇宁\\
+%\end{center}
+
+
+\quson $\dfrac{3+2i}{2-3i}-\dfrac{3-2i}{2+3i}=$\lines.
+
+\quson 一个等差数列前三项的和为$15$, 后三项的和为$123$, 所有项的和为$345$, 这个等差数列有\lines 项.
+
+
+
+\quson 已知$3x^2+2y^2=6x$, $x^2+y^2$的最大值是\lines.
+
+\quson[*] 已知三角形的一个内角为$120^{\circ}$, 并且三边长构成公差为$4$的等差数列, 则$\triabc$的面积为\lines.
+
+\quson[*] 实数$a$为何值时, 圆$x^2+y^2-2ax+a^2-1=0$与抛物线$y^2=\dfrac{1}{2}x$有两个公共点.
+
+\quson $30$支足球队进行淘汰赛, 决出一个冠军, 需要安排\lines 场比赛.
+
+\quson[*] 设$\alpha,\beta$是方程$x^2-2kx+k+6=0$的两个实根, 则$(\alpha-1)^2+(\beta-1)^2$的最小值是\lines.
+
+\quson 求过点$(1,0)$的直线, 使它与抛物线$y^2=2x$仅有一个交点.
+
+\quson 已知双曲线的右准线为$x=4$, 右焦点$F(0,10)$, 离心率$e=2$, 求双曲线方程.
+
+\quson[*] 由圆$x^2+y^2=9$外一点$P(5,12)$引圆的割线交圆于$A,B$两点, 求弦$AB$的中点$M$的轨迹方程.
+
+\quson 已知圆锥内有一个内接圆柱, 若圆柱的侧面积最大, 则此圆柱的上底面将已知圆锥的体积分成大,小两部分的比是\lines.
+
+\quson 函数$y=\cos^4x-\sin^4x$图象的一条对称轴方程是\brackets
+\xx{x=-\dfrac{\pi}{2}}{x=-\dfrac{\pi}{4}}{x=\dfrac{\pi}{8}}{x=\dfrac{\pi}{4}}
+
+\quson 已知$\alpha-\beta=\dfrac{\pi}{6},\tan\alpha=3^m,\tan\beta=3^{-m}$, 则$m$ 的值是\lines.
+
+\quson 函数$y=0.2^x+1$的反函数是\brackets
+\xx{y=\log_5x+1}{y=\log_5(x-1)}{y=-\log_5(x-1)}{y=-\log_5x-1}
+
+\quson 设$n>1$时, 数列$\cnm{1}$,$-2\cnm{2}$,$3\cnm{3}$,$-4\cnm{4}$,$\cdots$,$(-1)^{n-1}n\cnm{m}$的和是\brackets
+\xx{0}{(-1)^n2^n}{1}{\dfrac{2^n}{n+1}}
+
+\quson 在四棱锥的四个侧面中, 直角三角形最多可有\lines 个.
+
+\quson 正三棱锥$S\text{--}ABC$的侧棱与底面边长相等, 如果$E,F$分别是$SC,AB$的中点, 那么异面直线$EF,SA$所成的角为\lines.
+
+\quson 设$a,b,c\in R^+$, 则三个数$ a+\dfrac1b,~b+\dfrac1c,~c+\dfrac1a$\brackets
+\xx{\text{都不大于}2}{\text{都不小于}2}{\text{至少有一个不大于}2}{\text{至少有一个不小于}2}
+
+\quson 三个数$\frac25^{-\frac15},\,{\frac65}^{-\frac15},\,{\frac65}^{-\frac25}$的大小顺序是\lines.
+
+\quson 设$a_n=\sqrt{1\times2}+\sqrt{2\times3}+\sqrt{3\times3}+\cdots+\sqrt{n\times(n+1)}$, 求证$\dfrac{n(n+1)}{2}<a_n<\dfrac{(n+1)^2}{2}$.
+
+\quson 在\triabc 中, 三个角满足$(C-A)^2-4(B-A)(C-B)=0$, 则$\sin\dfrac{A+C}{2}=$\lines.
+
+\quson 已知数列\an 满足$a_1=2$, 对任意的$n\in N$, 都有$a_n>0$, 且$(n+1)a^2_n+a_na_{n+1}-na^2_{n+1}=0$, 又知数列\an[b] 中$b_n=2^{n-1}+1$ \\
+\subquson 求数列\an 的通项$a_n$以及它的前$n$项和$S_n$;\\
+\subquson 求数列\an[b]的前$n$项和$T_n$;\\
+\subquson 猜想$S_n$和$T_n$的大小关系, 并说明理由.
+
+\quson 矩形$ABCD(AB\leq BC)$中,$AC=2\sqrt2$, 沿对角线$AC$把它折成直二面角$B-AC-D$后, $BD=5$, 求$AB,\,BC$的长.
+
+
+
+
+\end{document} 

@@ -1,0 +1,193 @@
+\documentclass[a4paper,11pt,oneside,fleqn]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{graphicx,epstopdf,amsmath,paralist}%分别支持中文、插入图片、eps转为pdf、更多数学内容。
+\usepackage[margin=1.5cm]{geometry}% 页面
+\input{macros}
+\renewcommand{\section}[1]{\stepcounter{sectioni}\begin{center}{\zihao{4}\bfseries \S\arabic{sectioni}\ #1}\end{center}\par}\newcounter{sectioni}
+\newcommand{\cu}[1]{\par\vspace{1ex}\textbf{#1}}\newcommand{\qspace}{\underline{\qquad\quad}}\newcommand{\qlim}[2][x\to]{\Dd \lim_{#1#2}}
+\newcounter{qseti}[sectioni]\newcommand{\qset}[1]{\par\vspace{1ex}\stepcounter{qseti}\arabic{qseti}.\ #1\par\vspace{1ex}}\newcommand{\qd}{\mathrm{d}}
+\newcommand{\qint}[2][\mathrm{d}x]{{\textstyle\int}#2\,#1}\newcommand{\aint}[2][_a^b]{{\textstyle\int#1}#2\mathrm{d}x}\newcommand{\p}{\partial}
+\newcommand{\qsum}[2][\infty]{{\textstyle\sum\limits^{#1}_{#2}}}
+\begin{document}
+\section{函数与极限}
+\cu{初等函数：}幂函数、指数函数、对数函数、三角函数和反三角函数统称为基本初等函数。由基本初等函数有限次四则运算及复合运算得到的函数称为初等函数。
+\cu{反函数：}设函数$y=f(x)$ ，如果对于值域$\emph{D}$内任一$y$都有唯一确定的$x$与之对应，使$f(x)=y$，则称$x$ 是$y$ 在$\emph{D}$内定义的反函数，记作$x=f^{-1}(y)$ 。\textbf{单调函数必存在反函数。}\par
+$y=sin(x)$在$[-\frac{\pi}2,\frac{\pi}2]$内单调增，因而在$[-\frac{\pi}2,\frac{\pi}2]$ 上存在反函数。反正弦函数 $y=\arcsin x$的定义域为$[-1,1]$ ，值域为$[-\frac{\pi}2,\frac{\pi}2]$ 。\par
+想一想反余弦函数和反正切函数的定义域和值域各是什么？
+\cu{复合函数：}由 $y=f(u),u=\varphi (x)$可确定复合函数$y=f(\varphi(x))$ ，要求$\varphi(x)$ 的值域落在$f(u)$ 的定义域内。
+\qset{设$\Dd f(x+\frac1x)=x^2+\frac1{x^2}$，则$f(x)=$.\qspace}
+\qset{函数$\sqrt{\sin(\cos x)}$的定义域是\qspace.}
+\cu{数列极限：}设函数$\{a_n\}$是一个无穷数列，A为常数，如果对任意正数$\varepsilon$ ，都存在$N$，当$n>N$ 时，$|a_n-A|<\varepsilon$ ，则称数列$\{a_n\}$ 收敛于$A$，记作$\Dd \lim_{n\to\infty}a_n=A$或$a_n\to A(n\to\infty)$ .
+\qset{数列$\{(-1)^n+\frac1{10^n}\}$存在极限吗？}
+\qset{设$\Dd x_n=\frac1{1\cdot2}+\frac1{2\cdot3}+\cdots+\frac1{n(n+1)}$，结论正确的是(\quad)}\par
+A.发散\qquad B.收敛于1\qquad C.收敛于2\qquad D.既不发散也不收敛\par
+\cu{函数极限：}设函数$y=f(x)$在$a$的某邻域有定义，如果存在常数$A$，对任一$\varepsilon>0$，存在$a$的某邻域$U_{\varepsilon}$，当$x\in U_{\varepsilon}$时，$|f(x)-A|<\varepsilon$，则称$\Dd \lim_{x\to a}f(x)=A$。同样定义$\Dd \lim_{x\to a^+}f(x),\ \lim_{x\to a^-}f(x),\ \lim_{x\to +\infty}f(x),$\ $\Dd\lim_{x\to -\infty}f(x),\ \lim_{x\to \infty}f(x)$。
+\qset{$\Dd f(x)=\frac xx,\ g(x)=\frac{|x|}x,$则$\Dd \lim_{x\to 0}f(x)=\qspace,\ \lim_{x\to 0}g(x)=\qspace$.}
+\qset{设$\Dd \lim_{n\to \infty}x_n=x_0$,则函数列$\{f(x_n)\}$极限存在是函数极限$\Dd \lim_{x\to x_0}f(x)$存在的(\quad)}
+A.充分条件\qquad B.必要条件\qquad C.充要条件\qquad D.既非充分也非充要条件\par
+\cu{极限的性质:}如果$f(x),g(x)$极限存在，则$cf(x),\ f(x)\pm g(x),\ f(x)g(x),\ \Dd \frac{f(x)}{g(x)}\ (\lim g(x)\neq0)$也存在极限。
+\begin{align*}
+&\lim cf(x)=c\lim f(x)\\
+&\lim[f(x)\pm g(x)]=\lim f(x)+\lim g(x)\\
+&\lim f(x)g(x)=\lim f(x)\lim g(x)\\
+&\lim \frac{f(x)}{g(x)}=\frac{\lim f(x)}{\lim g(x)}\quad (\lim g(x)\neq0)\\
+&\qlim{a}f(x)=A\Longleftrightarrow\qlim{a^+}f(x)=\qlim{a^-}f(x)=A
+\end{align*}
+\qset{求$\Dd \lim_{x\to4}\frac{\sqrt x-2}{x^2-5x+4}$.}
+\cu{两个重要极限}\hspace{1in}$\Dd \qlim{0}\frac{\sin x}x=1\qquad \qlim{\infty}(1+\frac1x)^x=e$\vspace{1em}
+\qset{求$\Dd \lim_{x\to 0}\frac{\tan x}x,\qquad \lim_{x\to 0}\frac{1-\cos x}{x^2}$.}
+\qset{$\Dd \lim_{x\to \infty}(1+\frac2x)^x,\qquad \lim_{x\to 0}(1+x)^{\frac1x},\qquad \lim_{x\to \infty}(\frac{2-x}{3-x})^x$.}
+\section{函数的连续性}
+\cu{函数的连续性：}若$\Dd \qlim{x_0}f(x)=f(x_0)$，则称$f(x)$在点$x_0$连续；若$f(x)$在区间$(a,b)$内任意一点连续，则称$f(x)$在$(a,b)$上连续；若还在$a$点右连续，$b$ 点左连续，则在$[a,b]$上连续。
+\cu{连续函数的有限次四则运算及复合运算连续。}
+\cu{初等函数在其定义域内连续。}
+$$\mbox{\qset{设}} f(x)=\begin{cases}\frac{2^{\frac1x}-1}{2^{\frac1x}+1}\quad &x\neq0\\1&x=0\end{cases}\mbox{，问$f(x)$在$x=0$处是否连续？}\hspace*{2in}$$
+\cu{间断点：}不连续点称为间断点。
+\cu{可去间断点：}$\qlim{x_0}f(x)$存在，但是$f(x_0)$不存在或$\qlim{x_0}f(x)\neq f(x_0)$。
+\cu{跳跃间断点：}$\qlim{x_0^+}f(x),\qlim{x_0^-}f(x)$都存在但不相等。\par
+可去间断点和跳跃间断点统称第一类间断点，不是第一类间断点的间断点称第二类间断点。\\
+\qset{$\Dd f(x)=\frac{\sqrt{2-x}}{(x-1)(x-4)}$的间断点是\qspace ，属于第\qspace 类间断点。}
+\qset{求函数$f(x)=\Dd \frac{x^2\tan(2x)}{(e^x-1)\sin x}$在$(-\pi,\pi)$内的间断点，并判断其类型。}
+\cu{闭区间上连续函数最值定理：}闭区间$[a,b]$上的连续函数有界，并且存在最大值和最小值。
+\cu{介值定理：}设$f(x)$在$[a,b]$上连续，$f(a)\neq f(b)$，对任意介于$f(a)$和$f(b)$之间的数$C$，总存在$\xi\in(a,b)$使$f(\xi)=C$.
+\cu{零点存在定理：}设$f(x)$在$[a,b]$上连续，$f(a) f(b)<0$，则存在$\xi\in(a,b)$使$f(\xi)=0$.
+\qset{证明存在$x\in[\frac{\pi}2,\pi]$使$x=2\sin x$.}
+\section{导数与微分}
+\cu{导数：}设函数$y=f(x)$在$x_0$的某邻域有定义，如果极限$\Dd \lim_{\Delta x\to0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$存在，则称$f(x)$在$x_0$可导，这个极限称为$f(x)$在$x_0$的导数，记为$f'(x_0)$.
+\cu{可导必然连续。}
+\qset{利用定义求$y=x^2$和$y=\sin x$的导数。}
+\cu{导数公式}
+\begin{align*}
+&(C)'=0&(x^a)'=ax^{a-1}\\
+&(e^x)'=e^x&(a^x)'=a^x\ln a\\
+&(\ln x)'=\frac1x&(\log_ax)'=\frac1{x\ln a}\\
+&(\sin x)'=\cos x&(\cos x)'=-\sin x\\
+&(\tan x)'=\sec^2x&(\cot x)'=-\csc^2x\\
+&(\sec x)'=\sec x\tan x&(\csc x)'=-\csc x\cot x\\
+&(\arcsin x)'=\frac1{\sqrt{1-x^2}}&(\arccos x)'=\frac{-1}{\sqrt{1-x^2}}\\
+&(\arctan x)'=\frac1{1+x^2}&(\mathrm{arccot}\, x)'=\frac{-1}{1+x^2}\\
+&(u+v)'=u'+ v'&(u-v)'=u'-v'\\
+&(uv)'=u'v+v'u&(\frac uv)'=\frac{u'v-v'u}{v^2}\\
+&y'_x=y'_uu'_x&\frac{\qd  y}{\qd u}=\frac{\qd y}{\qd u}\cdot\frac{\qd u}{\qd x}
+\end{align*}
+\qset{求下列函数的导数}$x^2+2\sin x-3\cos x+9$\qquad
+$x^2\ln x$\qquad$\Dd\frac{\sqrt x(3-x)}{2x+1}$\qquad$\ln (1+\sin^2x)$\qquad$\Dd\sqrt{\frac{(x+1)(x+2)}{(x+3)(x+4)}}$
+\qset{方程$x^2-y+\ln y=0$确定了$y$是$x$的隐函数，求$y'$.}\vspace{-2em}
+$$\mbox{\qset{}}\begin{cases}x&=t\cdot\cos t\\y&=t\cdot\sin t\end{cases},\quad \mbox{求}\frac{\qd y}{\qd x}\hspace*{4.1in}$$
+\qset{设$y=\sin(x^2+1)$，求$y'(1)$.}
+\qset{设$y=x^2e^{-x}$，求$y^{(n)}$.}\vspace{-2em}
+$$\mbox{\qset{}}\begin{cases}x&=e^t\\y&=(t+1)^2\end{cases},\ \mbox{求$t=2$时曲线$y=f(x)$的切线及法线方程.\hspace*{1.8in}}$$
+\cu{微分：}如果函数$y=f(x)$在点$x$处可导，就把$f'(x)$与自变量的增量的乘积叫做微分，即$\qd y=f'(x)\qd x$.
+\qset{求下列微分$\qd(xe^{-x}+a)$\qquad$\qd(e^{\sin x})$\qquad$\qd (\ln(1+e^x))$}
+\section{中值定理、洛必达法则与极值}
+\cu{罗尔定理:}设$f(x)$在$[a,b]$上连续，在$(a,b)$上可导，$f(a)=f(b)$，则在$(a,b)$内至少存在一点$\xi$，使$f'(\xi)=0$.
+\cu{拉格朗日中值定理：}设$f(x)$在$[a,b]$上连续，在$(a,b)$上可导，则在$(a,b)$内至少存在一点$\xi$，使$f'(\xi)=\Dd\frac{f(b)-f(a)}{b-a}$.
+\cu{推论1：}设函数$f(x)$在$(a,b)$上可导，$f'(x)\equiv0$，则$f(x)$ 在该区间内是一个函数.
+\cu{推论2：}设$f(x)$和$g(x)$在$(a,b)$上可导，且$f'(x)=g'(x)$，则$f(x)$和$g(x)$相差一个常数.
+\qset{设不恒为常数的函数$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，且$f(a)=f(b)$.证明：在$(a,b)$内至少存在一点$\xi$，使得$f'(\xi)>0$.}
+\cu{洛必达法则：}设$f(x)$和$g(x)$在的某邻域内可导，$g'(x)\neq0$，如果$\lim f(x)=\lim g(x)=0$(或$\infty$)，且$\Dd\lim \frac{f'(x)}{g'(x)}$存在(或为$\infty$，则$\Dd\lim \frac{f(x)}{g(x)}=\lim \frac{f'(x)}{g'(x)}$.
+\qset{$\Dd\qlim{2}\frac{x^3-2x-4}{x^3-8}$\qquad$\Dd\qlim{0}\frac{x-x\cos x}{x-\sin x}$\qquad$\Dd\qlim{+\infty}\frac{x^2}{e^x}$\qquad$\Dd\qlim{0}\left(\frac1x-\frac1{e^x-1}\right)$\qquad$\Dd \qlim{0}{\left(\sin x+e^x\right)}^{\frac1x}$}
+\cu{极值：}若在$x_0$的某去心邻域内有$f(x_0)>f(x)$（或$f(x_0)<f(x)$），则称$f(x_0)$为$f(x)$的极大值（或极小值），$x_0$ 称为$f(x)$的极大值点（或极小值点）.
+\cu{极值的必要条件：}若$x_0$为$f(x)$的极值点，$f'(x_0)$存在，则$f'(x_0)=0$.
+\cu{极值第一充分条件：}设$f(x)$在$x_0$的某去心邻域内可导，在$x_0$ 点连续，若在$x_0$的左侧$f'(x)>0$，在$x_0$的右侧$f'(x)<0$，则$x_0$ 是$f(x)$的极大值点（极小值点类似）.
+\cu{极值第二充分条件：}设$f(x)$在$x_0$二阶可导且$f'(x_0)=0$，若$f''(x_0)>0$则$x_0$为极小值点；若$f''(x_0)<0$则$x_0$为极大值点.
+\qset{求$f(x)=x^3-3x$的增减区间和极值.}
+\qset{设$x>0,0<\alpha<1$，利用最值证明不等式$x^\alpha\leq\alpha x+(1-\alpha)$.}
+\cu{凸凹性：}在区间$I$内，若曲线$f(x)$上每一点的切线都在曲线的上（下），则称曲线在该区间上是凸（凹）的.\par
+例如$y=x^2$是凹的，$y=\sqrt x$是凸的.
+\cu{凸凹判别法：}设$f(x)$在区间$(a,b)$上具有二阶导数，若$f''(x)<0$，则$f(x)$是凸的；若$f''(x)>0$，则$f(x)$是凹的.
+\cu{拐点：}两侧有相反的凸凹性的点为拐点.\par
+对二阶可导的函数而言，点$x_0$为拐点的必要条件是$f''(x_0)=0$.
+\qset{求曲线$y=x^{3/8}-x^{5/3}$的凸凹区间及拐点.}
+\section{不定积分}
+\cu{原函数：}如果在区间$I$上$F(x)$的导函数为$f(x)$，则称$F(x)$为$f(x)$在区间$I$上的原函数.\par
+连续函数一定存在原函数.\par
+如果$F(x)$是$f(x)$的一个原函数，那么$F(x)+C$也是$f(x)$的原函数，并且包括所有的原函数.
+\cu{不定积分：}函数$f(x)$在区间$I$上的所有原函数称为$f(x)$在区间$I$上的不定积分，记为$\qint{f(x)}$.
+\cu{基本性质：}$\Dd(\qint{f(x)})'=f(x)$\qquad$\Dd\qint{f'(x)}=f(x)+C$\qquad$\Dd\qint{(\alpha f(x)\pm\beta g(x))}=\alpha\qint{f(x)}\pm\beta\qint{g(x)}$
+\cu{基本公式：}$\Dd\qint{x^k}=\frac1{k+1}x^{k+1}+C$\qquad$\Dd\qint{\frac1x}=\ln|x|+C$\qquad$\Dd\qint{a^x}=\frac{a^x}{\ln a}+C$\qquad$\Dd\qint{\cos x}=\sin x+C$\qquad$\Dd\qint{\sin x}=-\cos x+C$\qquad$\Dd\qint{\sec^2x}=\tan x+C$\qquad$\Dd\qint{\csc^2x}=-\cot x+C$\qquad$\Dd\qint{\tan x}=-\ln|\cos x|+C$\qquad$\Dd\qint{\cot x}=\ln|\sin x|+C$\qquad$\Dd\qint[]{\frac{\qd x}{\sqrt{1-x^2}}}=\arcsin x+C$\qquad$\Dd\qint[]{\frac{\qd x}{1+x^2}}=\arctan x+C$\qquad$\Dd\qint[]{\frac{\qd x}{1-x^2}}=\frac12\left|\frac{1+x}{1-x}\right|+C$
+\qset{求下列不定积分：$\Dd\qint{(x+1)^3}$\qquad$\Dd\qint{(\frac1x+\sqrt x+x^{\frac32})}$\qquad$\Dd\qint[]{\frac{\qd x}{x^2-x}}$}
+\qset{用换元积分法求积分：$\Dd\qint{3\cos 3x}$\qquad$\Dd\qint[]{\frac{\qd x}{2-x}}$\qquad$\Dd\qint{xe^{x^2}}$\qquad$\Dd\qint[]{\frac{\qd x}{a^2+x^2}}$\qquad$\Dd\qint{\sqrt{1-x^2}}$\qquad$\Dd\qint[]{\frac{x\qd x}{\sqrt{1-x^2}}}$ \qquad$\Dd\qint{\sin^3x}$\qquad$\Dd\qint[]{\frac{\qd x}{x\ln x}}$\qquad$\Dd\qint[]{\frac{\qd x}{1+\sqrt x}}$}
+\qset{用分部积分法（$\qint{uv'}=uv-\qint{u'v}$）求积分：$\Dd\qint{x\cos x}$\qquad$\Dd\qint{x^2e^x}$\qquad$\Dd\qint{x\ln x}$\qquad$\Dd\qint{e^x\sin x}$\qquad$\Dd\qint{\arctan x}$ }
+\section{定积分}
+\cu{定积分：}在区间$[a,b]$上插入若干分点，$a=x_0<x_1<x_2<\cdots<x_{n-1}<x_n=b$，$\lambda$表示最远的两个分点的距离，若$\lambda\to0$时$\Dd\sum^{n}_{i=1}f(\xi_i)\Delta x_i$ 存在极限（其中$x_{i-1}\leq\xi_i\leq x_i$），则称$f(x)$ 在$[a,b]$ 上可积，且$\int_a^bf(x)\qd\,x=\Dd\lim_{\lambda\to0}\sum_{i=1}^nf(\xi_i)\Delta x_i.$
+\qset{讨论$f(x)$在$[a,b]$上的可积性，其中$$ f(x)=\begin{cases}&1,\qquad x\mbox{为有理数}\\&0,\qquad x\mbox{为无理数}\qquad \end{cases}$$}
+\cu{定积分的几何意义：}表示曲边梯形的面积.
+\cu{定积分的基本性质：}$\Dd\aint[_a^a]{f(x)}=0$\qquad$\Dd\aint{f(x)}=-\aint[_b^a]{f(x)}$\qquad$\Dd\aint{\alpha f(x)+\beta g(x)}=\alpha\aint{f(x)}+\beta\aint{g(x)}$\qquad$\Dd\aint{f(x)}=\aint[_a^c]{f(x)}+\aint[_c^b]{f(x)}$\qquad$\Dd\left|\aint{f(x)}\right|\leq\aint{|f(x)|}$
+\cu{变限积分：}如果$f(x)$在[a,b]上连续，则变上限积分$\Phi(x)=\int_a^xf(t)\qd t$可导，且$\Phi'(x)=f(x)$.
+\cu{牛顿莱布尼兹公式：}设连续函数$f(x)$在$[a,b]$上的原函数为$F(x)$，则$\aint{f(x)}=F(b)-F(a)$.
+\qset{$\Dd\aint[_1^e]{\frac1x}$\qquad$\Dd\aint[_0^{\frac{\pi}2}]{\sin x}$\qquad$\Dd\frac{\qd}{\qd x}\left(\int_1^xe^{t^2}\qd t\right)$\qquad$\Dd\qlim{0}\frac{\int_{\cos x}^{1}e^{-t^2}\qd t}{x^2}$\qquad$\Dd\aint[_0^{\frac{\pi}2}]{\cos^2 x\sin x}$\\$\Dd\int_0^Rh\sqrt{R^2-h^2}\qd h$\qquad$\Dd\aint[_0^{\frac12}]{\arcsin}$\qquad$\Dd\aint[_0^{\pi}]{e^x\sin x}$}
+\qset{曲线$y=x$与$y=x^2$所围成图形的面积为\qspace}
+\qset{由抛物线$y^2=x-1$，直线$y=2$及$x$轴、$y$轴所围成的图形绕$x$ 轴旋转一周所得立体体积为\qspace ，绕$y$轴旋转一周所得立体体积为\qspace.}
+\section{二元函数微积分学}
+\cu{二元函数：}二元数组到数的映射.例如：$z=x+y$，$z=\sin xy$，$z=e^x\cos y$等等.\par
+二元函数的定义域一般是二维平面上的区域，图像是三维空间里的曲面.
+\qset{函数$\Dd z=\frac{\sqrt{2x-y^2}}{\ln(1-x^2-y^2)}$的定义域是\qspace.}
+\qset{设$f(x+y,\Dd\frac{y}x)=x^2-y^2$，则$f(x,y)=$\qspace.}
+\cu{偏导数：}设二元函数$z=f(x,y)$，把$y$视为常数，对$x$的导函数称为$z$关于$x$的偏导数，记作$\Dd \frac{\p z}{\p x}$或$f_x(x,y)$.同样定义$z$关于$y$的偏导数.
+\cu{混合偏导与次序无关定理：}若$z=f(x,y)$的两个混合偏导数$\Dd \frac{\p z}{\p x}$和$\Dd \frac{\p z}{\p y}$都在区域D（或点p）连续，则在该区域（或点p）有$\Dd\frac{\p^2z}{\p x\p y}=\frac{\p^2z}{\p y\p x}$.
+\qset{设$f(x,y)=x^2+(y-2)\arcsin\Dd\sqrt{\frac xy}$，则$f_x(1,2)=\qspace$，$f_y(1,2)=\qspace$.}
+\qset{设$z=y^x$，求$\Dd\frac{\p^2z}{\p x^2} ,\quad \frac{\p^2z}{\p y^2},\quad\frac{\p^2z}{\p x\p y},\quad\frac{\p^2z}{\p y\p x}$.}
+\cu{全微分：}定义$y=f(x,y)$的全微分为$\Dd\qd z=\frac{\p z}{\p x}\qd x+\frac{\p z}{\p y}\qd y$.
+\qset{ 设$z=\sin(xy)$，求$\qd z$.}
+\cu{二重积分：}二重积分$\Dd\iint\limits_Df(x,y)\,\qd x\,\qd y$可以计算曲顶柱体的体积，一般转化为二次积分来计算.例如设D是由$x=1$，$x=0$，$y=1$ ，$y=0$所围成的区域，则$\Dd\iint\limits_D(x+y)\,\qd x\,\qd y=\int_0^1\,\qd x\int_0^1(x+y)\,\qd y=\int_0^1(x+\frac12)\,\qd x=1$.
+\qset{ 设D由$y=x^2$与$y=8-x^2$所围成，求$\Dd\iint\limits_Dxy^2\,\qd x\,\qd y$. }
+\section{微分方程}
+\cu{微分方程：}含有未知函数的导数的方程.例如$y'=e^x$，$y'+2y=\sin(2x)$.其中未知函数最高阶导数的阶数称为微分方程的阶.\par
+一个函数，把它及其导数代入原方程使原方程变为恒等式，这样的函数叫做微分方程的解.例如$y'=x$的一个解为$y=\Dd \frac12x^2$.如果解中任意常数的个数与微分方程的阶数相同，就称其为通解.例如$y'=x$的通解为$y=\Dd \frac12 x^2+C$.
+\cu{可分离变量的微分方程：}化为$g(y)\qd y=f(x)\qd x$，两边积分.
+\qset{求：$\Dd\frac{\qd y}{\qd x}=xy$\qquad$\Dd y'+2xy=4x$}
+\cu{齐次微分方程：}化为$\Dd\frac{\qd y}{\qd x}=f(\frac yx)$，作变换$u=\frac yx$，则$\Dd\frac{\qd u}{\qd x}=\frac{x\frac{\qd y}{\qd x}-y}{x^2}=\frac{f(u)-u}x$，这是变量分离方程.
+\qset{求：$\Dd2xy\d x-(x^2+y^2)\d y=0$\qquad$\Dd\frac{\qd y}{\qd x}=\frac1{x+y}$.}
+\cu{一阶线性微分方程：}形如$\Dd\frac{\qd y}{\qd x}=p(x)y+q(x)$的方程的通解为$\Dd y=e^{\qint{p(x)}}\left(\qint{q(x)e^{-\qint{p(x)}}}+C\right)$.
+\qset{求：$\Dd \frac{\qd y}{\qd x}+y=e^{-x}$\qquad$\Dd\frac{\qd y}{\qd x}=2x+y$\qquad$\Dd y'+2y=\sin(2x)$}
+\cu{二阶常系数齐次线性微分方程}形如$y''+py'+qy=0$，如果$y_1(x)$和$y_2(x)$是两个解，则$C_1y_1(x)+C_2y_2(x)$也是解，如果还有$\Dd\frac{y_1(x)}{y_2(x)}\neq$常数，则上式包含所有解.\par
+上式的解形如$y=e^\lambda x$，把它代入得$\lambda^2+p\lambda+q=0$.\par
+(1)若$\lambda_1$，$\lambda_2$为相异实根，则$y=C_1e^{\lambda_1x}+C_2e^{\lambda_2x}$为通解.\par
+(1)若$\lambda_1$，$\lambda_2$为相同实根，则$y=C_1e^{\lambda_1x}+C_2xe^{\lambda_1x}$为通解.\par
+(1)若$\lambda_1$，$\lambda_2$为共轭复根$\alpha+\beta i$，则$y=C_1e^{\alpha x}\cos\beta x+C_2e^{\alpha x}\sin\beta x$为通解.\par
+\qset{求：$\Dd y''+2y'-3y=0$\qquad$\Dd y''+4y'+4y=0$}
+\section{无穷级数}
+\cu{数项级数：}给定一个数列$u_1,u_2,\cdots,u_n,\cdots$，将$\qsum{n=1}u_n$称为级数.\par
+$u_n$称为一般项，$\qsum[n]{k=1}u_k$称为部分和，数项级数收敛就定义为部分和数列收敛，数项级数发散就定义为部分和数列发散.级数收敛的必要条件是一般项趋于零.\par
+等比级数$\qsum{n=1}aq^{n-1}$收敛当且仅当$|q|<1$.\par p级数$\qsum{n=1}\Dd\frac1{n^p}$收敛当且仅当$p>1$.
+\cu{正项级数：}各项为正的级数称为正项级数.\par
+\cu{定理：}正项级数收敛的充要条件是部分和数列有上界.
+\cu{比较判别法：}设有两个正项级数$\qsum{n=1}u_n$和$\qsum{n=1}v_n$，从某一项开始恒有$u_n\leq v_n$，若$\qsum{n=1}v_n$ 收敛则$\qsum{n=1}u_n$收敛；若$\qsum{n=1}u_n$ 发散则$\qsum{n=1}v_n$发散.
+\cu{比式判别法：}设正项级数$\qsum{n=1}u_n$，如果满足$\qlim{\infty}\Dd\frac{u_{n+1}}{u_n}=\rho$，则当$\rho<1$时级数收敛；当$\rho>1$时级数发散.
+\qset{判断敛散性$\Dd\qsum{n=1}\frac{n^n}{n!}$\qquad$\Dd\qsum{n=1}\frac{2n-1}{3n+1}$}
+\cu{幂级数：}形如$\qsum{n=0}a_n(x-x_0)^n=a_0+a_1(x-x_0)+a_2(x-x_0)^2+\cdots+a_n(x-x_0)^n+\cdots$ 的函数项级数称为幂级数。当$x_0=0$时，幂级数形如$\qsum{n=0}a_nx^n=a_0+a_1x+a_2x^2+\cdots+a_nx^n+\cdots$，称为标准幂级数。\par
+幂级数全体收敛点的集合是一个包含原点左右长度相同的区间，称为收敛域，这个长度称为收敛半径$R$，把$(-R,R)$这个开区间称为收敛区间，而收敛域可能是$(-R,R)$，$[-R,R)$，$(-R,R]$，$[-R,R]$。
+\cu{定理：}如果$\Dd\lim_{n\to\infty}\sqrt[n]{|a_n|}=\rho$或$\Dd\lim_{n\to\infty}\bigg|\frac{a_{n+1}}{a_n}\bigg|=\rho$，则收敛半径$R=\Dd\frac1\rho$。
+\qset{$\Dd\qsum{n=1}(-1)^n\frac{x^n}n$\qquad$\Dd\qsum{n=1}n!x^n$\qquad$\Dd\qsum{n=1}\frac{x^{2n-1}}{2^n}$}
+\section{线性代数}
+\cu{行列式}乃是$n$行$n$列的数阵的，依照规则共同决定一个数。
+$$|a|=a\qquad\begin{vmatrix}a&b\\c&d\end{vmatrix}=ad-bc\qquad\begin{vmatrix}a_{11}&a_{12}&a_{13}\\a_{21}&a_{22}&a_{23}\\a_{31}&a_{32}&a_{33}\end{vmatrix}=\begin{array}{l}a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}\\-a_{13}a_{22}a_{31}-a_{12}a_{21}a_{33}-a_{11}a_{23}a_{32}\end{array}$$
+所有不同行不同列的$n$个数的积，适当地添加符号后相加。
+\cu{行列式的性质：}
+\begin{compactenum}
+\item 交换两行或两列，行列式反号。
+\item 某行（列）同乘以一个数，行列式也乘以这个数。
+\item 把一行（列）的倍数加到另一行（列），行列式不变。
+\item 行列交换行列式不变。
+\item 如果行列式的某一行（列）全为零，则行列式为零。
+\item 如果行列式的某几行（列）线性相关，则行列式为零。
+\end{compactenum}
+\cu{矩阵}是块状排列的数阵。
+\begin{compactdesc}
+\item[数乘]一个数乘以矩阵，就把这个数乘到每一个数上。
+\item[加法]两个矩阵相加减，就把对应元素相加减。
+\item[乘法]两个矩阵相乘，就把第一个矩阵的第$i$行同第二个矩阵的第$j$列相乘（向量乘法），作为积的第$i$行第$j$列的元素。
+\end{compactdesc}
+\cu{矩阵的初等行变换：}\begin{inparaenum}
+\item 交换两行，
+\item 某行同乘以一个数，
+\item 把一行的倍数加到另一行。
+\end{inparaenum}
+\cu{逆矩阵的求法：}设$A$为方阵，如果存在方阵$B$使得$AB=BA=E$，则称$A$和$B$互为逆矩阵，记$B=A^{-1}$。一个方阵不一定存在逆矩阵。求矩阵$A$的逆矩阵，可以把$A$与单位阵并排写，作初等行变换，当$A$变为单位阵时，单位阵变为$A^{-1}$。
+\cu{线性方程组：}形如$$\begin{cases}a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b1\\a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2\\\cdots\cdots\\a_{n1}x_1+a_{n2}x_2+\cdots+a_{nn}x_n=b_n\end{cases}$$
+简写作$Ax=b$，当$b=0$时，线性方程组称为齐次线性方程组。齐次线性方程组的线性无关解的线性组合是它的通解，非齐次线性方程组的通解是它对应齐次线性方程组的通解加上一个特解。$A$称为系数矩阵，$[A,b]$称为增广矩阵，对增广矩阵作初等行变换不改变线性方程组的解。
+\end{document}
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$\Dd$\qquad$\Dd$\qquad$\Dd$\qquad$\Dd$\qquad$\Dd$
+\qint[]{\frac{\d x}{}}   设$$，求$$.   $\Dd\iint\limits_Df(x,y)\,\qd x\,\qd y$

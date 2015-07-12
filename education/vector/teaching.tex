@@ -1,0 +1,44 @@
+\usepackage{amssymb,tikz,amsmath,amsmath,bm}
+\usetikzlibrary{arrows,calc,intersections,through,backgrounds,math,angles,shapes}
+\usepackage[noindent,space]{ctex}%宏包加载
+\usepackage{verbatim}
+\usetheme{Boadilla}\beamersetaveragebackground{black!10}%主题设置
+\setbeamersize{text margin left=1.3cm}\setbeamersize{text margin right=1.2cm}%页面尺寸
+\newcommand\colorwordsa[1]{\textcolor[rgb]{0,.63,.91}{\small\heiti#1}}%彩色文字
+\newcommand\colorwordsb[1]{\textcolor[rgb]{.75,.53,.21}{\small\heiti#1}}%彩色文字
+\newcommand\threesides{\begin{picture}(14,12)\put(0,0){\qbezier(0,0)(0,8)(7,12)\qbezier(7,12)(14,8)(14,0)\qbezier(14,0)(7,-4)(0,0)}\end{picture}}%logo
+\newlength\lengtha\newcommand\an[1][a]{\ensuremath{\{#1_n\}}}\newcommand\lines[1][1.2]{\,\underline{\mbox{\hspace{#1cm}}}\,}% 代码
+\setbeamercolor{mycolor}{fg=black,bg=pink}\setbeamercolor{myupcol}{fg=white,bg=purple}\setbeamercolor{mylowcol}{fg=black,bg=pink}% 彩色盒子
+\newcommand\beamercolortextbox[1]{\settowidth\lengtha{#1}\hspace{.5em}\raisebox{-.6ex}{\begin{beamercolorbox}[rounded=true,shadow=true,wd=\lengtha,colsep*=-.4ex]{mycolor}#1\end{beamercolorbox}}}
+\newcommand\beamercolorlinebox[1]{\settowidth\lengtha{#1}\centerline{\begin{beamercolorbox}[rounded=true,shadow=true,wd=\lengtha]{mycolor}#1\end{beamercolorbox}}}
+\newcommand\mytitle[1]{\title{#1}\author{王崇宁}\institute[四中]{郑州四中}\logo{\threesides}\maketitle}
+\newcommand\bfR{{\bm R}}
+\newcommand\bfN{{\bm N}}
+\newcommand\bfZ{{\bm Z}}
+\newcommand\bfQ{{\bm Q}}
+\newcommand\bfC{{\bm C}}
+\def\bfa{{\bm a}}
+\def\bfb{{\bm b}}
+\def\bfc{{\bm c}}
+\def\bfd{{\bm d}}
+\def\bfe{{\bm e}}
+\def\bfzero{{\bm 0}}
+\newcommand\myvec[1]{\bm#1}
+\def\veca{\myvec a}
+\def\vecb{\myvec b}
+\def\vecc{\myvec c}
+\def\vecd{\myvec d}
+\def\vece{\myvec e}
+\def\vecf{\myvec f}
+\def\vecs{\myvec e}
+\def\vecp{\myvec p}
+\def\vecq{\myvec q}
+\def\veci{\myvec i}
+\def\vecj{\myvec j}
+\def\vecei{\myvec{e_1}}
+\def\veceii{\myvec{e_2}}
+\def\veczero{\myvec 0}
+\newcommand\lvec[1]{\overrightarrow{#1}}
+\newcommand\bpics[1]{\par\vspace{1ex}\noindent\begin{minipage}{\textwidth}\begin{minipage}{#1\textwidth}}
+\newcommand\mpics[1]{\end{minipage}\begin{minipage}{#1\textwidth}\linespread{1}}
+\newcommand\epics{\end{minipage}\end{minipage}\par\vspace{2ex}}

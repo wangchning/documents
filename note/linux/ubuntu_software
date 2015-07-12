@@ -1,0 +1,12 @@
+apt-cache 用于查找	apt-get 用于安装和移除
+apt-cache pkgnames vsftp	找出所有以vsftpd开头的软件包
+apt-cache search vsftpd		查找与之相关的软件包并列出相关信息
+apt-cache show vsftpd 		查看软件包信息
+
+apt-get update			更新软件包
+apt-get install netcat		安装或更新指定软件包
+apt-get remove vsftpd		移除软件包，但是保留相关配置
+如果要删除软件包的所有文件，可以加 --purge 参数
+apt-get clean			删除已下载的软件包
+
+			
