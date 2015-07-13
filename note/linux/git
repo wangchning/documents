@@ -23,7 +23,7 @@ git至简, 其中没有新建文件的命令, 只把已有的文件加进来.
 查看命令日志	$ git reflog
 
 
-撤回之一		$ git checkout -- file	用暂存区或工作区(若暂存区无)覆盖工作区
+撤回之一		$ git checkout -- file	用暂存区或版本库(若暂存区无)覆盖工作区
 撤回之二		$ git reset HEAD file	用版本库覆盖暂存区
 撤回之三		$ git reset --hard HEAD^ 	修改HEAD指针
 或		$ git reset --hard 3628164  	使用序列号修改
