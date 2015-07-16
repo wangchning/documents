@@ -113,7 +113,9 @@ Git鼓励大量使用分支
     		$ git branch --set-upstream master origin/next
 
 
-
+解决中文文件名乱码问题
+运行
+$ git config --global core.quotepath false
 
 
 
