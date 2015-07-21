@@ -1,0 +1,56 @@
+加边框
+添加边框有两种方式，一种比较简单，使用 -bordercolor 指定边框颜色，和 -border 指定边框宽度；另一种支持更多形式的变化，用 -mattecolor 指定颜色，和 -frame 控制边框的形状。两种方式均支持复合边框，也支持二者相互混合。
+
+$ convert -bordercolor blue -border 5 a.jpg a1.jpg
+
+$ convert -bordercolor purple -border 5 -borderlolor "#228888" -border 5 a.jpg a2.jpg
+
+convert -mattecolor green -frame 5x15 a.jpg a3.jpg
+
+convert -mattecolor pink -fram 10x10+0+10 a.jpg a4.jpg
+（后两个加起来的数不能超过10,可设为+5+5）
+
+
+给图片瘦身
+1.通过清除相机信息（光圈、相机型号），photoshop元数据，颜色表等信息。
+$ convert -strip +profile "*" a.jpg b.jpg
+
+2.通过降低图片品质，减小图片大小，一般降低到 85% 图片用肉眼看起来差别并不大。
+$ convert -quality 85 b.jpg c.jpg
+
+这两种方法对所有图片并不是都有效，还是看情况而定。
+
+最后介绍一个把当前文件夹下的所有jpg图片都瘦身的办法
+$ find . -name "*.jpg" -exec convert -strip +profile "*" -quality 85 {} {}\;
+
+
+合成图片
+下面以合成 4 张图片为例
+	   a1 a2
+	   a3 a4
+方式1
+$ convert +append a1.jpg a2.jpg b1.jpg
+$ convert +append a3.jpg a4.jpg b2.jpg
+$ convert -append b1.jpg b2.jpg c1.jpg
+
++append 表示横向连接，-append 表示纵向连接。如果两张图片大小不一样，将自动填补白色。
+
+方式2
+$ convert -size 512x512 -strip -color 8 -depth 8 xc:none a1.jpg -geometry +0+0 -composite a2.jpg -geometry +256+0 -composite a3.jpg -geometry +0+256 -composite a4.jpg -geometry +256+256 -composite c2.jpg
+
+
+制作 gif 图片
+1.获取 gif 动画的每桢图片
+convert a.gif a.png
+
+2.生成 gif 文件
+$ convert *.jpg dest.gif
+以下两个参数需要注意
+-delay 控制时间，以微秒为单位
+-loop 控制播放次数，默认的 0，表示无尽循环
+
+例如
+$ convert -delay 50 a1.jpg a2.jpg t1.gif
+$ convert -delay 100 a3.jpg a4.jpg t2.gif
+$ convert t1.gif t2.gif dest.gif
+
