@@ -52,8 +52,10 @@ C-x C-s   储存这个文件
 C-x s	  储存多个文件
 C-x C-b   列出缓冲区
 C-x s   保存多个缓冲区
-M-x recover file<Return>
+M-x recover file<Return>恢复自动保存的文件
 
+禁止自动备份（“~”结尾的文件），在 ~/.emacs 文件中加入
+(setq make-backup-file nil)
 
 * 查找与替换（SEARCHING AND ERPLACE）
 
