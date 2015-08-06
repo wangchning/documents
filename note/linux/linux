@@ -1,4 +1,3 @@
-
 $ wget http://math.ecnu.edu.cn/~latex/docs/Chs_doc/my_tex_faq.pdf
 使用这个命令立即就把这个文件下下来了. 自动保存在主目录下
 
@@ -8,7 +7,6 @@ $ git clone git://github.com/mathjax/MathJax.git MathJax
 要更新的时候只需输入
 	$ cd MathJax
 	$ git pull origin
-
 
 
 ------------------------------------------------------------------
@@ -45,3 +43,19 @@ Ubuntu 默认只安装了vi,没有安装Vim,在终端输入"vim", 提示已有'v
 
 dd 删除当前行, 并把它放在剪贴板里
 p  粘贴剪贴板
+
+-----------------------------------------------------------------
+解决Linux下音乐乱码的问题
+1.安装 mutagen
+$ sudo apt-get install python-mutagen
+2.修改单个文件
+$ mid3iconv -e gbk a.mp3
+3.修改多个文件
+$ find . -name "*.mp3" -exec mid3iconv -e gbk {} \;
+4.原理：由于大陆大多数MP3文件都是用GBK/GB18030编码写入标签信息的，而大多数的linux播放器默认以utf-8编码读取，这就产生了乱码。显然，其他文件如果是类似这种情况的话也可以更改。
+
+----------------------------------------------------------------
+使用wget下载百度云上的资源
+1.在浏览器上下载然后复制链接URL
+2.$ wget "URL"  密决在于引号
+
