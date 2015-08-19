@@ -5,7 +5,7 @@ user byu1160570001 142857dnmq
 binary
 hash
 cd /
-lcd /home/bamboo/wangchning
+lcd /home/cnmr/cnmemory
 prompt
 mput *
 close
