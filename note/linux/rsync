@@ -12,3 +12,6 @@ $ rsync -vrtp --progress --delete /home/cnmr/ /media/cnmr/mypassport/cnmr
 -e  用ssh对传输的数据加密
 --delete  若源文件不存在，而目标文件存在，把目标文件删除
 -n  用于评估，在这个命令下，任何东西都不会被删除或复制
+
+用rsync备份home时要做的两件事情，清空回收站，清除firefox缓存，因为这两个东西通常较大，而且更新速度
+快。
