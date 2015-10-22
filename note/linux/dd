@@ -1,3 +1,0 @@
-使用dd制作U盘启动盘: dd if=ubuntu-15.04-desktop-i686.iso of=/dev/sdb1 bs=4M 
-使用dd制作CD/DVD系统盘: dd if=ubuntu-13.10-desktop-i386.iso of=/dev/cdrom bs=4M 
-使用dd制作镜像: dd if=/dev/cdrom of=/home/username/cd.iso bs=4M

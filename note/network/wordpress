@@ -1,5 +1,0 @@
-在 http://cn.wordpress.org 下载压缩包, 上传至 虚拟主机并解压.
-假设解压为 /wordpress/, 访问　http://www.wangchning.com/wordpress/wp-admin/install.php (其中wangchning.com是我的个人域名)
-
-密码都是root
-
