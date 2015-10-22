@@ -1,0 +1,84 @@
+======== 安装 ========================================================
+(1)分区: 默认
+(2)选项: gnome 勾选　x　windows
+(3)为自己的用户勾选管理权限，不然普通用户不可用　sudo　命令
+(4)不推荐使用中文安装，那样的话用户下的文件夹会是中文名称，不方便在命令行下切换，也会使终端中的日期和时间等显示不正确。
+
+======== 第三方源 ===============================================
+EPEL即Extra Packages for Enterprise Linux 。CentOS为了保证系统的稳定性，只提供了少量的软件包，无法满足更多的需求。EPEL为CentOS提供了额外10000多个软件包，而且在不替换系统组件方面下了很多功夫，因而可以放心使用。
+	$ sudo yum install epel-release
+If method #1 failed, try the following method #2 to install EPEL Repo.
+	$ cd /tmp
+	$ wget https://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+	$ sudo yum install epel-release-7-5.noarch.rpm
+参考: http://www.cyberciti.biz/faq/installing-rhel-epel-repo-on-centos-redhat-7-x/
+
+
+安装yum-axelget
+yum-axelget是EPEL提供的一个yum插件。使用该插件后用yum安装软件时可以并行下载，大大提高了软件的下载速度，减少了下载的等待时间:
+	$ sudo yum install yum-axelget
+
+!Yum Fastest Mirror Plugin，可以帮助你选择最适合你下载系统更新的镜像站点，以便得到更快速度，它是YUM软件包管理的一个插件：
+	$ sudo yum install yum-plugin-fastestmirror
+!已经安装
+
+======== U盘 和移动硬盘支持 =============================
+	$ sudo yum install ntfs-3g
+如果没有添加 EPEL 源的话
+	$ sudo yum --enablerepo epel install ntfs-3g 
+
+
+
+
+======== 五笔输入法 ==================================================
+sudo yum install ibus ibus-table-wubi
+settings->Region&Language->Input Sources + Chinese(wubi-jidian86)
+Super+Space 切换输入法，在 keyboard settings 中可以修改
+
+造词：比如我要造“锡恩”这个词，输入 qjq 出现“锡”字，此时按左Shift键，接着输入 ldn 出现“恩”字，再按一下左Shift键，出现 ＃qjld 按一下空格键就在输入“锡恩”的同时把“锡恩”加入了词库中。同样的，多个字造词也可以这样做。
+
+!安装五笔
+!yum install ibus-table-chinese-wubi-haifeng.noarch
+!海峰五笔或者极点五笔。都差不多。
+!yum install ibus-table-chinese-wubi-jidian.noarch
+
+======== 为终端创建快捷键 ===========================================
+keyboard settings中添加
+Name: Terminal
+Command: gnome-terminal
+为之创建快捷键　Ctrl+Alt+T ,由于之前一直用 Ubuntu 所以采用了这个组合键
+
+
+
+
+======== 安装 WPS ===========================================
+
+
+====== Flash =============================================
+$ sudo rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
+$ sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
+$ sudo yum install flash-plugin
+
+
+======== LAMP =====================================================
+
+
+
+======== 其他软件 ================================================
+	$ sudo yum install ImageMagick  
+	$ sudo yum install gimp
+
+
+======== 缷载 =========
+首先查看已安装了什么
+	$ yum list installed *soft_name*
+用下面的命令缷载
+	$ sudo yum remove <name>
+
+
+======== 清理 ============================================
+下载的软件包和header存储在cacher中不会自动删除, 使用下面的命令删除.
+	$ yum clean all
+
+======== 锁屏时间设置 ============================
+settings--> Privacy-->Screen Lock

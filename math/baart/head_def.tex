@@ -73,11 +73,7 @@
 \renewenvironment{proof}{\par\indent{\heiti 证明~~}}{\hspace*{\fill}$\Box$\par}
 
 %========常用命令
-\newcommand*\circled[1]{%
-\hspace{1pt}
-\tikz[baseline=(char.base)]
-\node[very thin,shape=circle,draw,inner sep=.5pt,minimum size=2pt](char){#1};
-\hspace{1pt}}
+\newcommand*\circled[1]{\hspace{1pt}\tikz[baseline=(char.base)]\node[very thin,shape=circle,draw,inner sep=.5pt,minimum size=2pt](char){#1};\hspace{1pt}}
 \renewcommand\mod[1]{\ (\text{mod}\;#1)}
 \newcommand{\upcite}[1]{$\!\!\!^{\mbox{\scriptsize\cite{#1}}}$}
 

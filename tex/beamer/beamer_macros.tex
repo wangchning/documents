@@ -1,0 +1,90 @@
+\usepackage{ctex}
+\usepackage{graphicx,booktabs}
+\usepackage{tikz}
+\usepackage{comment}
+\usepackage{multirow}
+\usetikzlibrary{arrows,arrows.spaced,arrows.meta,calc,intersections,through,backgrounds,math,angles,shapes}
+\usetheme{Boadilla}
+\beamersetaveragebackground{black!6}
+\def\mathfamilydefault{\rmdefault}
+\setbeamersize{text margin left=1.3cm}\setbeamersize{text margin right=1.2cm}
+\newcommand\mytitle[1]{\title{#1}\author{王崇宁}\institute[四中]{郑州四中}\logo{\includegraphics[width=1cm]{cows.jpg}}\maketitle\kaishu\Large}
+\newcommand\colorwordsa[1]{\textcolor[rgb]{0,.63,.91}{\heiti #1}}
+\newcommand\colorwordsb[1]{\textcolor[rgb]{.75,.53,.21}{\heiti #1}}
+\setbeamercolor{mycolor}{fg=black,bg=pink}
+\setbeamercolor{myupcol}{fg=white,bg=purple}
+\setbeamercolor{mylowcol}{fg=black,bg=pink}
+\newcommand\beamercolortextbox[1]{\settowidth\lengtha{#1}\hspace{.5em}\raisebox{-.6ex}{\begin{beamercolorbox}[rounded=true,shadow=true,wd=\lengtha,colsep*=-.4ex]{mycolor}#1\end{beamercolorbox}}}
+\newcommand\beamercolorlinebox[1]{\settowidth\lengtha{#1}\centerline{\begin{beamercolorbox}[rounded=true,shadow=true,wd=\lengtha]{mycolor}#1\end{beamercolorbox}}}\newlength\lengtha
+\newcommand\threesides{\begin{picture}(14,12)\put(0,0){\qbezier(0,0)(0,8)(7,12)\qbezier(7,12)(14,8)(14,0)\qbezier(14,0)(7,-4)(0,0)}\end{picture}}
+
+
+\def\displaygray{\setbeamercovered{transparent}}
+\newcommand*\circled[1]{\hspace{1pt}\tikz[baseline=(char.base)]\node[very thin,shape=circle,draw,inner sep=.5pt,minimum size=2pt](char){#1};\hspace{1pt}}%
+
+
+
+\newcommand\Dd{\displaystyle}\newcommand{\Tt}{\textstyle}\newcommand{\Ss}{\scriptstyle}\newcommand{\Sss}{\scriptscriptstyle}%
+
+\setlength\mathsurround{0.5ex}%文本公式前后留下空白
+\makeatletter
+\renewcommand\normalsize{\@setfontsize\normalsize\@xpt\@xiipt\abovedisplayskip8\p@\@plus3\p@\@minus5\p@\abovedisplayshortskip\z@\@plus3\p@\belowdisplayshortskip5\p@\@plus3\p@\@minus7\p@\belowdisplayskip\abovedisplayskip\let\@listi\@listI}%行间公式上下
+\@addtoreset{equation}{section}
+\renewcommand\theequation{\oldstylenums{\thesection}.\oldstylenums{\arabic{equation}}}%公式按章节编号
+\makeatother
+%\setlength\mathsurround{0.ex}%数学模式与文本模式混排时留出的间距
+
+\newcommand\an[1][a]{\ensuremath{\{#1_n\}}}%sequence
+\newcommand\ud{\mathrm{d}}
+\newcommand{\ue}{\mathrm{e}}%正体字母
+\newcommand\triabc{\ensuremath{\triangle ABC}}%三角形ABC
+\newcommand\cnm[2][n]{\ensuremath{\textrm{C}^{#2}_{#1}}}%组合数
+%数学题目编辑
+\newcommand\lines[1][1.2]{\,\underline{\mbox{\hspace{#1cm}}}\,}% 填空题的横线
+\newcommand\brackets[1][2]{\nolinebreak\hfill\mbox{~(\hspace{#1em})}\\}% 选择题的括号
+%扩展命令
+\newcommand\qqquad{\qquad\quad}
+\def\aside#1{\marginpar{\footnotesize #1}}
+%自动编号之最简
+\newcommand\numa{\refstepcounter{numi}\thenumi}\newcounter{numi}
+\newcommand\numb{\refstepcounter{numii}\thenumii}\newcounter{numii}
+\newcommand\numc{\refstepcounter{numiii}\thenumiii}\newcounter{numiii}
+\newcommand\numaa{\refstepcounter{numai}\thenumai}\newcounter{numai}[numi]
+
+\newcommand{\question}[1][]{\par\vspace{1ex}\noindent\refstepcounter{numberi}\textbf{\thenumberi.}\ensuremath{#1}}\newcounter{numberi}[subsection]% 每道小题自动编号
+\newcommand\quson{\\ \hspace*{1em}\refstepcounter{numberii}\thenumberii)~}\newcounter{numberii}[numberi]% 每道小题自动编号
+\newcommand\choice[5][4]{\vspace*{-1em}\begin{tasks}(#1)\task$#2$\task$#3$\task$#4$\task$#5$\end{tasks}\vspace*{-1.2em}}%选择题排版之数学模式
+\newcommand\choicex[5][4]{\vspace*{-1em}\begin{tasks}(#1)\task#2\task#3\task#4\task#5\end{tasks}\vspace*{-1.2em}}%选择题排版之yysg模式
+\newcommand\tbs[1][]{\texttt{\char92#1}}
+
+\newcommand\set[1]{\lbrace\ensuremath{#1}\rbrace}
+\newcommand\setx[1]{\{#1\}}
+
+\newcommand\mybf[1]{{\bm#1}}
+\def\bfR{\mybf R}
+\def\bfN{\mybf N}
+\def\bfZ{\mybf Z}
+\def\bfQ{\mybf Q}
+\def\bfC{\mybf C}
+\def\bfZp{\mybf Z^+}
+
+\newcommand\myvec[1]{\bm#1}
+\def\veca{\myvec a}
+\def\vecb{\myvec b}
+\def\vecc{\myvec c}
+\def\vecd{\myvec d}
+\def\vece{\myvec e}
+\def\vecf{\myvec f}
+\def\vecs{\myvec e}
+\def\vecp{\myvec p}
+\def\vecq{\myvec q}
+\def\veci{\myvec i}
+\def\vecj{\myvec j}
+\def\vecei{\myvec{e_1}}
+\def\veceii{\myvec{e_2}}
+\def\veczero{\myvec 0}
+\newcommand\lvec[1]{\overrightarrow{#1}}
+
+
+
+

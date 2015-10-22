@@ -1,0 +1,20 @@
+========长度=======================================================
+--------单位长度---------------------------------------------------
+pt	point()	
+bp	big point(1in=72bp)
+pc	pica(1pc=12pt)
+in	inch(1in=72.27pt)	
+cm	centimeter(1in=2.54cm)
+mm	millimeter(1mm=2.84pt)	
+em	当前字体中 M 的宽度
+ex	当前字体中 x 的高度
+mu	math unit, 1/18 em
+sp	scaled poind(65536sp=1pt)
+
+--------长度命令------------------------------------------------------
+\newlength{name}		新建一个长度名
+\setlength\name{length}		给长度量赋值
+\addtolength\name{length}	在原有的长度上加上一个量
+长度命令定义后，可以使用 \the\name 显示
+
+

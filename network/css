@@ -1,0 +1,51 @@
+==============================================================================
+1. 内联样式表
+	<p style="background:yellow;color:black;font-size=25px;font-family:宋体">
+	在HTML中直接引用, 只有这一个标签下会应用此样式
+	</p>
+2. 在head标签下的内联样式
+	<style type="text/css">
+	<!--
+	p{background:yellow;color:black;font-size=25px;font-family:宋体}	
+	-->
+	</style>
+	把这个style放在<head>和</head>里, 定义的样式就会应用于整篇HTML文档. 
+	注释的目的是为了避免某些不支持CSS的浏览器错误地解析, 一般情况下并不影响CSS发挥作用. 
+3. 外联样式表
+	<link rel="stylesheet" href="example.css">
+4. 外联样式表
+	<style type="text/css">
+	@import "example.css"
+	@import "css/other.css"
+	</style>
+=======================================================================
+text-align		left,right,center,justify
+text-indent		p{text-indent:2em}
+line-height		body{line-height:120%}
+letter-spacing		body{letter-spacing:0.2em}
+word-spacing
+text-decoration		underline,overline,line-through,blink
+vertical-align		baseline,super,sub,top,text-top,middle,bottom,text-bottom
+text-transform		capitalize,uppercase,lowercase,none
+
+color
+background		body{background:url(images/001.jpg) no-repeat 20px 50px fixed}
+font-family
+font-size
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

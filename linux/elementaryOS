@@ -1,0 +1,28 @@
+elementary OS有如下几个特点：
+    1.界面漂亮，看起来很舒服
+    2.使用简单，仿苹果风格，容易上手，操作方便，软件使用起来很贴心
+    3.对系统的要求很低，运行流畅
+
+安装中文，设置-->语言和区域，选择中文，完整安装。
+
+安装中文字体，从windows上拷贝字体，复制到～/.fonts文件夹下
+
+安装中文输入法
+    $ sudo apt-get remove ibus
+    $ sudo apt-get install fcitx-table-wbpy
+
+常用软件
+    gimp
+    ImageMagick
+    git
+    vim
+    geogebra
+    gedit
+    xfburn    光盘刻录
+    firefox
+    pdftk    pdf合并、分割、加密软件
+    eog    图像浏览器
+
+emacs 无法启动的解决办法
+export XLIB_SKIP_ARGB_VISUALS=1
+

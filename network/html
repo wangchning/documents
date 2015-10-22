@@ -1,0 +1,185 @@
+HTML　是超文本标记语言．比如使用<title>和</title>中间写标题, <p>和</p>分别表示一个段落的开始的结束, <hr>用来画一条水平线.
+
+HTML 用来指定文字的类型, 插入图片, 表格, 超链接, 引入其它网页, PHP程序等.
+
+除了 title ,其他 head 里的内容对页面访问者来说都是不可见的
+==================================================================
+结构
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>标题</title>
+title:显示在浏览器的标签页中,通常还是浏览器书签的默认名称,对搜索引擎来说也是非常重要的信息
+除title外, head中的内容不会显示,其中的有些信息有助于引擎搜索,目前还不清楚
+css样式和script就在这里导入
+</head>
+<body>
+这里是正文
+</body>
+</html>
+
+
+
+
+===============================================================================
+<!--这里是注释-->
+<p>一个段落</p>
+<p align="center">这是一个居中的段落, 默认align="left", 而align="right"不常用</p>
+<br>此处换行	<nobr>禁止断行</nobr>	<wbr>建议断行
+<hr>插入一条水平线, 一般用于分割不同的部分
+<hr align="center" size="2" width="70%" color="#FF0000" noshade="noshade">
+
+
+<h1>一级标题</h1>
+<h2>二级标题</h2>
+<h3>三级标题</h3>
+<h4>四级标题</h4>
+<h5>五级标题</h5>
+<h6>六级标题, 没有更多了</h6>
+
+<center>顾名思义</center>
+<em> 强调,通常反映为倾斜</em>
+<strong>重要,通常表示为加粗</strong>
+<b>加粗</b>		<i>倾斜</i>
+<sub>下标</sub>		<sup>上标</sup>
+<ins>下划线</ins>	<del>删除线</del>
+<big>大一号</big>	<small>小一号</small>
+<code>代码引入</code>	<pre>保留空格和换行</pre>
+<blockquote>缩进表引用</blockquote>
+
+<font face="宋体" color="purple" size="3">size的范围是1~7, 默认为3,size="-1"表示在当前大小的基础上减1</font>
+
+<div>区隔标记</div>
+
+
+<ol type="1">
+    <li>type="1"数字1,2,3...编号
+    <li>type="a"字母a,b,c...编号
+    <li>type="A"字母A,B,C...编号
+    <li>type="i"罗马数字i,ii,iii...编号
+    <li>type="I"罗马数字I,II,III...编号
+</ol>
+<ul>
+    <li>type="disc" 实心圆
+    <li>type="circle" 空心圆
+    <li>type="square" 实心方块
+</ul>
+
+<a href="http://www.wangchning.com" target=_blank>崇宁记忆</a>
+给文字"崇宁记忆"指定一个网址, target="_blank"表示在新的标签页打开
+<a href="example.html"><img src="picture/pc.png"></a>
+给图片指定一个链接, 链接到主页所在目录下的wxample.html文件, 图片在主页所在目录下的picture文件夹下的pc.png, 如果指定上一级目录, 用../ 类似地../../表示上上级目录.
+<a href="mailto:wangchning@163.com">联系我</a>
+a选项
+href		指定链接地址: 网址,本地文件,邮件地址,锚点
+name="there"	埋下锚点,用href="#there"引用
+target="_blank"	在新的标签页打开
+
+img选项
+src		图片所在位置,支持jpg,gif,png
+width heigth	宽度及高度
+hspace vspace	图片与文字的上下左右空白
+border		边框粗细
+align		top,middle,bottom(默),left,right
+		textop,baseline,absmiddle,adsbottom与文字对齐
+alt		描述,鼠标悬停时显示,在文本浏览器中替代图片
+lowsrc		设定先显示低解析度源图片
+提问:将图片链接到图片本身,可以实现什么效果?
+
+
+<table border="1" summary="this table gives some...">
+<caption><em>a example</em></caption>
+  <tr><th rowspan="2"> <th colspan="2">average  <th rowspan="2">red<br>eys
+  <tr>		       <th>height   <th>weight
+  <tr><th>males        <td>1.9      <td>0.003   <td>40%
+  <tr><th>females      <td>1.7      <td>0.002   <td>43%
+</table>
+选项	        说明		table	tr	tb
+width="30%"	表格宽度		有		有
+heigth="15"	单元格高度				有
+border="1"	边框粗线,默认0		有		
+cellspacing="1"	单元格间格		有	
+cellpadding="1"	文字与格线的距离	有	
+align="left"	默认为center		有	有	有
+vailgn="middle"	可改为top,bottom	有	有	有
+background=""	背景图片,优先于bgcolor	有		有
+bgcolor="gray"	背景颜色		有	有	有
+bordercolor=""	边框颜色		有	有	有
+colspan="2"	向右打通				有
+rowspan="2"	向左打通				有
+提问:如何打通两行两列?
+
+
+
+表单负责数据采集. 主要有文本框,选择按钮,下拉列表,提交按钮.
+<input type="email" name="emailaddr" required> 输入框，required表必须输入
+
+
+
+HTML用于定义内容的含义,而CSS用于定义内容和网页如何显示。这两种都是文本文件，因而易于编辑。
+
+16种基本颜色
+aqua(水绿)#00FFFF  black(黑)#000000  blue(蓝)#0000FF  fuchsia(紫红)#FF00FF  gray(灰)#808080  green(绿)#008000  lime(浅绿)#00FF00  maroon(褐)#800000  navy(深蓝)#000080  olive(橄榄)#808000  purple(紫)#800080  red(红)#FF0000  silver(银)#C0C0C0 teal(深青)#008080  white(白)#FFFFFF  yellow(黄)#FFFF00  
+
+
+
+
+
+
+../表示当前文件夹的上一层，../../表示上上一层，依此类推
+
+
+
+每个 Web 浏览器都有一个内置 CSS 文件(一张样式表),它决定了每个
+HTML 元素的默认样式。你自己创建的 CSS 可以覆盖这些样式。
+
+
+容易看出, 有些 HTML 元素(如article、h1 和 p )从新的一行开始显示,就像纸质书中的各个段落一样,而另外一些元素(如 a 和 em )则与其他内容显示在同一行,如图 1.9.2 所示。需要强调的是,这是浏览器
+的默认样式,而不是 HTML 元素自身的样式,也不是由代码中两个元素之间的空行引起的。
+
+<html lang="en-US"> 美国英语
+<meta charset="utf-8"> 字符编码声明为UTF-8
+
+main 元素是 HTML5 新添加的元素。一个页面只有一个部分代表其主要内容。可以将这样的内容包在 main 元素中,该元素在一个页面仅使用一次。
+
+article 元素表示文档、页面、应用或网站中一个独立的容器,原则上是可独立分配或可再用的,就像聚合内容中的各部分。它可以是一篇论坛帖子、一篇杂志或报纸文章、一篇博客条目、一则用户提交的评论、一个交互式的小部件或小工具,或者任何其他独立的内容项。
+
+
+
+
+符号		Entity Name	Entity Number
+<空格>		&nbsp;		&#160;		
+<		&lt;		&#60;
+>		&gt;		&#62;
+&		&amp;		&#38;
+"		&quod;		&#34;
+(c)		&copy;		&#169;
+(r)		&reg;		&#174;
+乘号		&times;		&#215;
+除号		&divide;	&#247;
+
+
+========================================================================
+语法
+  用两个空格来代替制表符（tab） -- 这是唯一能保证在所有环境下获得一致展现的方法。
+  嵌套元素应当缩进一次（即两个空格）。
+  对于属性的定义，确保全部使用双引号，绝不要使用单引号。
+  不要在自闭合（self-closing）元素的尾部添加斜线 -- HTML5 规范中明确说明这是可选的。
+  不要省略可选的结束标签（closing tag）（例如，</li> 或 </body>）。
+
+为每个 HTML 页面的第一行添加标准模式（<!DOCTYPE html>）的声明，这样能够确保在每个浏览器中拥有一致的展现。
+
+HTML 属性应当按照以下给出的顺序依次排列，确保代码的易读性。
+  class
+  id, name
+  data-*
+  src, for, type, href
+  title, alt
+  aria-*, role
+
+布尔型属性可以在声明时不赋值。
+
+编写 HTML 代码时，尽量避免多余的父元素。
+
+
+

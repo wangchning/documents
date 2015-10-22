@@ -3,8 +3,8 @@
 \usepackage[noindent,space]{ctex}%宏包加载
 \usetheme{Boadilla}\beamersetaveragebackground{black!10}%主题设置
 \setbeamersize{text margin left=1.3cm}\setbeamersize{text margin right=1.2cm}%页面尺寸
-\newcommand\colorwordsa[1]{\textcolor[rgb]{0,.63,.91}{\small\heiti#1}}%彩色文字
-\newcommand\threesides{\begin{picture}(14,12)\put(0,0){\qbezier(0,0)(0,8)(7,12)\qbezier(7,12)(14,8)(14,0)\qbezier(14,0)(7,-4)(0,0)}\end{picture}}%logo
+\newcommand\colorwordsa[1]{\textcolor[rgb]{0,.63,.91}{\small\heiti #1}}%彩色文字
+\def\threesides{\begin{picture}(14,12)\put(0,0){\qbezier(0,0)(0,8)(7,12)\qbezier(7,12)(14,8)(14,0)\qbezier(14,0)(7,-4)(0,0)}\end{picture}}%logo
 \newlength\lengtha\newcommand\an[1][a]{\ensuremath{\{#1_n\}}}\newcommand\lines[1][1.2]{\,\underline{\mbox{\hspace{#1cm}}}\,}% 代码
 \setbeamercolor{mycolor}{fg=black,bg=pink}\setbeamercolor{myupcol}{fg=white,bg=purple}\setbeamercolor{mylowcol}{fg=black,bg=pink}% 彩色盒子
 \newcommand\beamercolortextbox[1]{\settowidth\lengtha{#1}\hspace{.5em}\raisebox{-.6ex}{\begin{beamercolorbox}[rounded=true,shadow=true,wd=\lengtha,colsep*=-.4ex]{mycolor}#1\end{beamercolorbox}}}

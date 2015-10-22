@@ -1,0 +1,12 @@
+LAMP 是指 Linux, Apache, MySQL 和 PHP.
+在 Ubuntu 下运行即可安装 Apache+MySQL+PHP.
+$ sudo apt-get install lamp-server^
+注意: 末尾的"^"是要加上的(为什么?)
+中间会提示你输入 MySQL 的密码, 其它的都会自动安装, 十分便捷.
+
+在浏览器中输入 http://localhost/ 或者 http://127.0.0.1/ 会显示一个网页, 表示你的
+ Apache 可以运行了. 其实打开的就是 /var/www/html/index.html .
+如法炮制, 在 /var/www/html/ 下新建一个 testing.php 文件, 就可以在 http://localho
+st/testing.php 浏览.         
+$ sudo echo "<?php phpinfo(); ?>" > /var/www/html/testing.php
+

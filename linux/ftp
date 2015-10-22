@@ -1,0 +1,54 @@
+ftp		启动 ftp
+    -v 显示远程服务器的所有响应信息
+    -n 限制ftp的自动登录，不使用 .netrc 文件
+    -d 使用调试方式
+    -g 取消全局文件名
+open IP		连接
+ls		列出远程机的当前目录
+cd		在远程机上改变工作目录
+cdup		进入远程主机目录的父目录
+lcd		在本地机上改变工作目录
+ascii		设置文件传输方式为 ASCII 模式(缺省值)
+binary		设置文件传输方式为二进制模式
+get (mget)	从远程机传送指定文件到本地机, m表示传输多个
+put (mput)	从本地机传送指定文件到远程机
+bye		退出ftp会话过程, 同quit
+close		终止当前的 ftp 会话, 与open对应
+quit		断开与远程机的连接并退出 ftp, 与ftp对应
+?		显示本地帮助信息
+!		转到 Shell 中
+prompt 1	关闭交互模式
+bell		每完成一次文件传送,报警提示
+delete		删除远端主机中的文件
+
+
+
+--------------------------------------------------------------------
+在主目录下建立一个权限 600 名为 .netrc 的文件，内容如下："
+machine 192.168.0.1 login <ftpuser> password <ftpuser_password>"
+运行 ftp 192.168.0.1 即可成功连接。
+
+macdef定义一个宏。在macdef行下, 可输入任何有效的ftp命令,并以空行结束宏定义,执行时只需在宏名前加"$"号即可。如果宏名定义为init,则该宏命令在启动ftp后自动
+加以执行。
+	default login anonymous password user@my.site
+	macdef init
+	hash on 
+	prompt off
+	idle 7200
+	(空行)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

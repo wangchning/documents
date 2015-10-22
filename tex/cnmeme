@@ -1,0 +1,99 @@
+%====如何把页码设置为"第几页  共几页"的样子
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\fancyfoot[C]{\kaishu\small 第\thepage 页\quad 共\pageref{LastPage} 页}
+
+%====fancyhdr宏包
+\lhead{}  \chead{}  \rhead{\bfseries The performance of new graduates}
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\lfoot{From: K. Grant}  \cfoot{To: Dean A. Smith}     \rfoot{\thepage}
+
+
+%====xeCJK宏包添加字体
+\setCJKfamilyfont{huawen}{STXihei}
+\newcommand\xihei{\CJKfamily{huawen}}%华文细黑
+
+%====设置中文标题格式
+\usepackage{ctexcap} %加载 ctex 宏包
+\CTEXsetup[format={\centering\zihao{-4}\heiti\bf}]{section}
+\CTEXsetup[format={\zihao{5}\heiti\bf}]{subsection}
+
+%====调整行距!!!
+\linespread{1.5}%1.5倍行距
+\setlength\lineskiplimit{0pt}\setlength\lineskip{1ex}
+
+\usepackage{setspace}
+\begin{spacing}{2.0}
+    ***
+\end{spacing}
+
+
+%====公式与文本间距调整
+\setlength\mathsurround{0.5ex}%文本公式前后留下空白
+\makeatletter\renewcommand\normalsize{\@setfontsize\normalsize\@xpt\@xiipt\abovedisplayskip8\p@\@plus3\p@\@minus5\p@\abovedisplayshortskip\z@\@plus3\p@\belowdisplayshortskip5\p@\@plus3\p@\@minus7\p@\belowdisplayskip\abovedisplayskip\let\@listi\@listI}\makeatother%行间公式上下
+
+
+%====公式组断页
+\allowdisplaybreaks[1]%0～4分页级别渐高
+
+
+%定理环境修改
+\newtheoremstyle{mystyle}{3pt}{3pt}{\songti}{2em}{\heiti\bf}{}{1em}{}%style名称 %环境前空白 %环境后空白 %主字体 %theorem名前的缩进 %theorem字体 % %theorem后缩进
+
+%====正文开始前用罗马数字编号
+\thispagestyle{plain}
+\pagenumbering{roman}%arabic
+\setcounter{page}{1}
+
+%====带圈的编号
+\newcommand*\circled[1]{\hspace{2pt}\tikz[baseline=(char.base)]\node[shape=circle,draw,inner sep=.5pt,minimum size=2pt](char){#1};\hspace{2pt}}
+
+%====控制图表浮动
+使用 float 宏包, 并在 table 环境的选项中填 H.
+
+%====分页
+\pagebreak[num] 鼓励分页  与之相反的 \nopagebreak[num] 鼓励不分页
+\linebreak \nolinebreak
+\newpage \newline
+
+
+### 贵khgm 澎湃ifir 牛rhk 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
