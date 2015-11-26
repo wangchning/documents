@@ -1,0 +1,21 @@
+\documentclass{article}
+\input{macros}
+\title{第四章～基本平面图形～练习题}
+\author{王崇宁}
+\begin{document}
+\maketitle
+\section{线段, 射线, 直线}
+\subsection{易错题}
+任意三点可以确定直线的条数是\lines
+
+如图, 点$A,B,C$在直线$a$上, (1)图中线段和直线分别有多少条? 并用图中字母写出所有线段和直线.
+(2)图中射线有多少条? 并用字母表示图中的射线.
+\begin{tikzpicture}
+  \draw (0,0)--(7,0);
+  \node[left] at (0,0) {$a$};
+  \coordinate[label=below:$A$](A)at(1,0);
+  \foreach\x in(1,0),(3.5,0),(5.5,0)
+    \fill[black,opacity=0.5]\x circle(2pt);
+\end{tikzpicture}
+
+\end{document}
