@@ -15,3 +15,5 @@ $ rsync -vrtp --progress --delete /home/cnmr/ /media/cnmr/mypassport/cnmr
 
 用rsync备份home时要做的两件事情，清空回收站，清除firefox缓存，因为这两个东西通常较大，而且更新速度
 快。
+rm ~/.local/share/Trash/files/*
+

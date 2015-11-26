@@ -1,3 +1,8 @@
 使用dd制作U盘启动盘: dd if=ubuntu-15.04-desktop-i686.iso of=/dev/sdb1 bs=4M 
 使用dd制作CD/DVD系统盘: dd if=ubuntu-13.10-desktop-i386.iso of=/dev/cdrom bs=4M 
 使用dd制作镜像: dd if=/dev/cdrom of=/home/username/cd.iso bs=4M
+
+$ sudo fdisk -l
+为了安全写入镜像你要卸载他们。我们看到“/dev/sdb1”和“/dev/sdb2”，所以我们运行：
+$sudo umount /dev/sdb1
+$sudo umount /dev/sdb2
